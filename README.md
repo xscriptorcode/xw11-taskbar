@@ -1,5 +1,5 @@
 
-# Windhawk Taskbar Style Themes
+# Windhawk Windows 11 Taskbar Styler Themes
 
 This repository contains a collection of custom taskbar styles for **Windhawk**, designed to enhance the appearance of the Windows taskbar using acrylic, color, and minimal design aesthetics. Each JSON file in this repo corresponds to a unique theme that modifies the look and feel of the taskbar.
 
