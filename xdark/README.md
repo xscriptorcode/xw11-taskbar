@@ -3,47 +3,108 @@
 **Author**: [xscriptorcode](https://github.com/xscriptorcode)
 
 ![Demonstration](files/xdark.png)
+![Demonstration](files/screenshotfocustaskbar.png) ![Demonstration](files/screenshotclock.png)
 
 # ✦ Required Windhawk Mods for Full Effect
-To achieve the full implementation of the xdark theme, make sure to install and configure the following Windhawk mods in addition to Taskbar Styler:
+To achieve the full implementation of the xdark theme, make sure to have your windows on dark theme and install and configure the following Windhawk mods in addition to Taskbar Styler:
 
 - Taskbar Clock Customization – for styling the system clock.
 
+<details>
+<summary>Click to expand JSON content</summary>
+
+```json
+{
+  "ShowSeconds": 1,
+  "TimeFormat": "HH':'mm",
+  "DateFormat": "dd'/'MM'/'yyyy",
+  "WeekdayFormat": "",
+  "TopLine": "",
+  "MiddleLine": "",
+  "BottomLine": "║▌║%date% X %time% ▌│",
+  "TooltipLine": "%web1_full%",
+  "Width": 180,
+  "Height": 60,
+  "TextSpacing": 0,
+  "TimeStyle.Visible": 1,
+  "TimeStyle.TextColor": "#facc15",
+  "TimeStyle.TextAlignment": "Center",
+  "TimeStyle.FontSize": 12,
+  "TimeStyle.FontFamily": "JetBrainsMono NF",
+  "TimeStyle.FontWeight": "ExtraLight",
+  "TimeStyle.FontStyle": "",
+  "TimeStyle.FontStretch": "",
+  "TimeStyle.CharacterSpacing": 0,
+  "DateStyle.TextColor": "#facc15",
+  "DateStyle.TextAlignment": "Center",
+  "DateStyle.FontSize": 12,
+  "DateStyle.FontFamily": "Times New Roman",
+  "DateStyle.FontWeight": "Light",
+  "DateStyle.FontStyle": "Normal",
+  "DateStyle.FontStretch": "SemiCondensed",
+  "DateStyle.CharacterSpacing": 1,
+  "oldTaskbarOnWin11": 0,
+  "MaxWidth": 0,
+  "TimeStyle.Hidden": 1,
+  "DateStyle.Hidden": 0
+}
+
+```
+
+</details>
+
+---
+
 - Taskbar Height and Icon Size – to adjust the proportions and padding of taskbar items.
+
+<details>
+<summary>Click to expand JSON content</summary>
+
+```json
+
+{
+  "IconSize": 15,
+  "TaskbarHeight": 35,
+  "TaskbarButtonWidth": 30
+}
+
+```
+
+</details>
+
+---
 
 - Taskbar Labels for Windows 11 – to enable visible labels next to app icons.
 
+<details>
+<summary>Click to expand JSON content</summary>
 
+```json
 
-# ✦ Notes
+{
+  "taskbarItemWidth": 60,
+  "minimumTaskbarItemWidth": 50,
+  "maximumTaskbarItemWidth": 120,
+  "runningIndicatorStyle": "centerFixed",
+  "progressIndicatorStyle": "sameAsRunningIndicatorStyle",
+  "fontSize": 12,
+  "leftAndRightPaddingSize": 8,
+  "spaceBetweenIconAndLabel": 8,
+  "labelForSingleItem": "%name%",
+  "labelForMultipleItems": "[%amount%] %name%",
+  "mode": "labelsWithCombining",
+  "excludedPrograms[0]": "excluded1.exe",
+  "alwaysShowThumbnailLabels": 0,
+  "fontFamily": "",
+  "runningIndicatorHeight": 0,
+  "runningIndicatorVerticalOffset": 0
+}
 
-- This theme is designed for dark, minimalistic desktop setups.
-- Uses rounded corners (`CornerRadius=13`) for taskbar buttons and system tray.
-- Accent color is golden yellow `#facc15`, used for text and icons.
-- Running indicators are invisible, making the interface cleaner.
-- Some tray icons are intentionally hidden for a sleeker look.
+```
 
-# ✦ Highlighted Features
+</details>
 
-- Fully black background on taskbar buttons and system tray.
-- Clean layout with hidden elements and padding adjustments.
-- Gold-accented icons for enhanced visibility on dark backgrounds.
-- Custom Start icon glyph (``).
-- Compact and rounded system tray.
-
-# ✦ Suggested Windows Settings
-
-- Use default (centered) taskbar alignment.
-- Set display scale to 100% for best results.
-- Hide unnecessary tray icons via Windows settings.
-
-# ✦ Theme Selection
-
-To enable this theme via Windhawk:
-
-* Open the **Windows 11 Taskbar Styler** mod in Windhawk.
-* Go to the **Settings** tab.
-* Select `xdark` and click **Save**.
+---
 
 # ✦ Manual Installation
 
@@ -53,33 +114,12 @@ You can manually import the styles like this:
 * Go to the **Advanced** tab.
 * Paste the following JSON content in the "Mod settings" section and click **Save**.
 
-# ✦ Other versions
-
-You can find in the variations folder:
-- xdark01, same customization with the dark background in the windows icon.
-
-![Demonstration](files/xdark01.png) 
-
-### ✦ Customize Icon-to-Text Spacing
-
-If you'd like to adjust the distance between the app icon and its label (usually the app name), you can modify the following JSON property:
-
-```json
-"controlStyles[12].styles[2]": "Margin=1,0,0,0"
-```
-
-This Margin follows the format:
-Margin=left,top,right,bottom
-
-So, "Margin=1,0,0,0" sets 1 pixel of space between the icon and the text.
-
 <details>
 <summary>Click to expand JSON content</summary>
 
 ```json
 
 {
-  "theme": "xdark",
   "controlStyles[0].target": "Taskbar.TaskListButton",
   "controlStyles[0].styles[0]": "CornerRadius=13",
   "controlStyles[0].styles[1]": "Padding=6,0,6,0",
@@ -142,3 +182,41 @@ So, "Margin=1,0,0,0" sets 1 pixel of space between the icon and the text.
 ```
 
 </details>
+
+# ✦ Notes
+
+- This theme is designed for dark, minimalistic desktop setups.
+- Uses rounded corners (`CornerRadius=13`) for taskbar buttons and system tray.
+- Accent color is golden yellow `#facc15`, used for text and icons.
+- Running indicators are invisible, making the interface cleaner.
+- Some tray icons are intentionally hidden for a sleeker look.
+- For now there is a variation of xdark, called [xdark01](variations/xdark01.json), the only difference is that the Windows icon has the same black background as the rest of the applications.
+
+# ✦ Highlighted Features
+
+- Fully black background on taskbar buttons and system tray.
+- Clean layout with hidden elements and padding adjustments.
+- Gold-accented icons for enhanced visibility on dark backgrounds.
+- Custom Start icon glyph (``).
+- Compact and rounded system tray.
+
+# ✦ Suggested Windows Settings
+
+- Use default (centered) taskbar alignment.
+- Set display scale to 100% for best results.
+- Hide unnecessary tray icons via Windows settings.
+
+### ✦ Customize Icon-to-Text Spacing
+
+If you'd like to adjust the distance between the app icon and its label (usually the app name), you can modify the following JSON property:
+
+```json
+"controlStyles[12].styles[2]": "Margin=1,0,0,0"
+```
+
+This Margin follows the format:
+Margin=left,top,right,bottom
+
+So, "Margin=1,0,0,0" sets 1 pixel of space between the icon and the text.
+
+
