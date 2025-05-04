@@ -120,6 +120,7 @@ You can manually import the styles like this:
 ```json
 
 {
+  "theme": "xdark",
   "controlStyles[0].target": "Taskbar.TaskListButton",
   "controlStyles[0].styles[0]": "CornerRadius=13",
   "controlStyles[0].styles[1]": "Padding=6,0,6,0",
