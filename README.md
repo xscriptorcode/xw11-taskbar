@@ -13,10 +13,10 @@ A dark, minimalistic theme for sleek environments.
 ---
 
 
-### `xdark.json`
+### [xdark](xdark/README.md)
 A dark, minimalistic theme for sleek environments.
 
-![xdark](screenshots/xdark.png)
+![xdark](xdark/files/xdark.png)
 
 ---
 
