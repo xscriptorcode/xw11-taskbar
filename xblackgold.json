@@ -42,7 +42,7 @@
   "controlStyles[12].target": "TextBlock#LabelControl",
   "controlStyles[12].styles[0]": "FontFamily=Segoe UI Medium",
   "controlStyles[12].styles[1]": "Foreground=#facc15",
-  "controlStyles[12].styles[2]": "Margin=4,0,0,0",
+  "controlStyles[12].styles[2]": "Margin=1,0,0,0",
   "controlStyles[13].target": "Taskbar.ExperienceToggleButton#LaunchListButton[AutomationProperties.AutomationId=StartButton]",
   "controlStyles[13].styles[0]": "Visibility=Visible",
   "controlStyles[14].target": "Windows.UI.Xaml.Controls.TextBlock#InnerTextBlock[Text=]",
