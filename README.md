@@ -28,10 +28,10 @@ A translucent acrylic theme with centered icons and a subtle gold border for a c
 
 ---
 
-### `xblackgold.json`
+### [xblackgold](xblackgold/README.md)
 A dark, minimalistic theme for sleek environments.
 
-![xdark](screenshots/xblackgold.png)
+![xdark](/xblackgold/files/xblackgold.png)
 
 ---
 ### `xdeepocean.json`
