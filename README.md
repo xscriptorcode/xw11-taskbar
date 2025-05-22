@@ -5,12 +5,6 @@ This repository contains a collection of custom taskbar styles for **Windhawk**,
 
 ## Included Styles
 
-### `xblackgold.json`
-A dark, minimalistic theme for sleek environments.
-
-![xdark](screenshots/xblackgold.png)
-
----
 
 
 ### [xdark](xdark/README.md)
@@ -20,6 +14,19 @@ A dark, minimalistic theme for sleek environments.
 
 ---
 
+### [xtranslucid](xtranslucid/README.md)
+A translucent acrylic theme with centered icons and a subtle gold border for a clean, modern look.
+
+![xtranslucid](xtranslucid/files/xtranslucid.png)
+
+---
+
+### `xblackgold.json`
+A dark, minimalistic theme for sleek environments.
+
+![xdark](screenshots/xblackgold.png)
+
+---
 ### `xdeepocean.json`
 Inspired by deep ocean tones, offering a cool, calm appearance.
 
@@ -45,13 +52,6 @@ A modern purple-toned style with vibrant flair.
 A clean and soft icy gray theme for clarity and neutrality.
 
 ![xicegray](screenshots/xicegray.png)
-
----
-
-### `xtranslucid.json`
-A translucent acrylic theme with centered icons and a subtle gold border for a clean, modern look.
-
-![xtranslucid](screenshots/xtranslucid.png)
 
 ---
 
