@@ -21,6 +21,13 @@ A translucent acrylic theme with centered icons and a subtle gold border for a c
 
 ---
 
+### [xtranslucid-light](xtranslucid-light/README.md)
+A translucent acrylic theme with centered icons and a subtle gold border for a clean, modern look, light mode.
+
+![xtranslucid](xtranslucid-light/files/xtranslucid-light.png)
+
+---
+
 ### `xblackgold.json`
 A dark, minimalistic theme for sleek environments.
 
