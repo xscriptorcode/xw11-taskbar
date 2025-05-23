@@ -1,4 +1,4 @@
-# ✦ xblackgold theme for Windows 11 Taskbar Styler
+#  xblackgold theme for Windows 11 Taskbar Styler
 
 **Author**: [xscriptorcode](https://github.com/xscriptorcode)
 
@@ -8,7 +8,7 @@
 
 ---
 
-# ✦ Overview
+#  Overview
 
 `xblackgold` is a bold and elegant theme for Windows 11's taskbar using Windhawk’s **Taskbar Styler**. It combines a **fully black background** with **golden text and icon accents**, rounded corners, and a subtle yet dynamic system accent color indicator for running apps.
 
@@ -16,7 +16,7 @@ This theme is ideal for users who want a sleek, professional aesthetic with refi
 
 ---
 
-# ✦ Required Windhawk Mods for Full Effect
+#  Required Windhawk Mods for Full Effect
 
 To achieve the full implementation of the `xblackgold` theme, make sure to:
 
@@ -118,7 +118,7 @@ Enable clean labels with margin separation and formatting.
 
 ---
 
-# ✦ Manual Installation
+#  Manual Installation
 
 To manually apply this theme:
 
@@ -193,7 +193,7 @@ To manually apply this theme:
 
 ---
 
-# ✦ Notes
+#  Notes
 
 - Black background with golden highlights for maximum contrast.
 - Text and icons use `#facc15` for a distinctive golden glow.
@@ -203,7 +203,7 @@ To manually apply this theme:
 
 ---
 
-# ✦ Highlighted Features
+#  Highlighted Features
 
 - Rounded corners (`CornerRadius=6`) across taskbar and system tray.
 - Dynamic system accent indicator under active apps.
@@ -212,7 +212,7 @@ To manually apply this theme:
 
 ---
 
-# ✦ Suggested Windows Settings
+#  Suggested Windows Settings
 
 - Enable **dark mode** in system settings.
 - Center the taskbar icons.
@@ -221,7 +221,7 @@ To manually apply this theme:
 
 ---
 
-## ✦ Customize Further
+##  Customize Further
 
 You may extend this theme by:
 

@@ -1,4 +1,4 @@
-# ✦ xtranslucid theme for Windows 11 Taskbar Styler
+#  xtranslucid theme for Windows 11 Taskbar Styler
 
 **Author**: [xscriptorcode](https://github.com/xscriptorcode)
 
@@ -6,7 +6,7 @@
 
 > ⚠️ **Note**: This theme is intended for **dark mode**. Please enable Windows dark mode to ensure proper visibility of text and indicators.
 
-# ✦ Overview
+#  Overview
 
 `xtranslucid` is a clean and fully transparent theme for Windows 11’s taskbar, created using the Windhawk mod **Taskbar Styler**. It removes all visible backgrounds and strokes from the taskbar, system tray, and task buttons, allowing your wallpaper and blur effects to shine through.
 
@@ -14,7 +14,7 @@ This theme is designed for users who want a minimal, floating aesthetic where th
 
 ---
 
-# ✦ Manual Installation
+#  Manual Installation
 
 You can manually import the styles like this:
 
@@ -61,27 +61,27 @@ You can manually import the styles like this:
 ```
 </details>
 
-## ✦ Notes
+##  Notes
 
 - `xtranslucid` removes all solid fills, strokes and backgrounds, making the taskbar fully transparent.
 - Ideal for setups using dynamic wallpapers, glassmorphism, or blurred effects.
 - Compatible with other Windhawk mods like **Taskbar Labels**, **Clock Customization**, or **Height & Icon Size**.
 - Designed for modern minimalist desktops where less is more.
 
-## ✦ Suggested Windows Settings
+##  Suggested Windows Settings
 
 - Use the default (centered) taskbar alignment.
 - Enable dark mode in Windows for consistency.
 - Set taskbar background effects via system personalization (e.g., transparency effects).
 - Use app labels if desired via the **Taskbar Labels for Windows 11** Windhawk mod.
 
-## ✦ Preview
+##  Preview
 
 Here's how the `xtranslucid` theme looks with app icons centered and the background fully transparent:
 
 ![Demonstration](files/xtranslucid.png)
 
-## ✦ Additional Suggestions
+##  Additional Suggestions
 
 For a better look and compatibility, consider combining this style with:
 
@@ -89,7 +89,7 @@ For a better look and compatibility, consider combining this style with:
 - **Taskbar Clock Customization** – to style the clock to match your setup.
 - **Taskbar Height and Icon Size** – to adjust proportions for a more compact or expanded appearance.
 
-## ✦ Customize Further
+##  Customize Further
 
 You can easily expand this theme by adding:
 
