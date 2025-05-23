@@ -48,10 +48,10 @@ A bold and shiny golden theme for a luxurious look.
 
 ---
 
-### `xgrapepurple.json`
+### [xgrapepurple](xgrapepurple/README.md)
 A modern purple-toned style with vibrant flair.
 
-![xgrapepurple](screenshots/xgrapepurple.png)
+![xgrapepurple](xgrapepurple/files/xgrapepurple.png)
 
 ---
 
