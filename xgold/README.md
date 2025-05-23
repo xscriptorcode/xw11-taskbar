@@ -72,6 +72,7 @@ You can manually import the styles like this:
 }
 
 ```
+</details>
 
 ---
 
