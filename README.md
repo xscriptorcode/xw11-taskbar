@@ -34,10 +34,10 @@ A dark, minimalistic theme for sleek environments.
 ![xdark](/xblackgold/files/xblackgold.png)
 
 ---
-### `xdeepocean.json`
+### [xdeepocean](xdeepocean/README.md)
 Inspired by deep ocean tones, offering a cool, calm appearance.
 
-![xdeepocean](screenshots/xdeepocean.png)
+![xdeepocean](xdeepocean/files/xdeepocean.png)
 
 ---
 
