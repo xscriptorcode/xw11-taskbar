@@ -4,7 +4,7 @@
 
 ![Demonstration](files/xtranslucid-light.png)
 
-> ⚠️ **Note**: This theme is intended for **light mode**. Please enable Windows light mode to ensure proper visibility of text and indicators.
+**Note**: This theme is intended for **light mode**. Please enable Windows light mode to ensure proper visibility of text and indicators.
 
 ---
 
@@ -76,19 +76,3 @@ You can manually import the styles like this:
 - Apply wallpaper or blur effects for a floating look.
 - Use additional Windhawk mods for clock and labels if desired.
 
-
-## ✦ Additional Suggestions
-
-For best results, combine this style with:
-
-- **Taskbar Labels** – show app names beside icons.
-- **Taskbar Clock Customization** – adjust clock fonts and alignment.
-- **Taskbar Height and Icon Size** – refine proportions to match your taste.
-
-## ✦ Customize Further
-
-You can easily expand this theme by:
-
-- Adding corner radius for rounded edges.
-- Adjusting font size, family, or alignment.
-- Switching indicator colors or re-enabling hidden elements.

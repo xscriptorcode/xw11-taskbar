@@ -4,7 +4,7 @@
 
 ![Demonstration](files/xtranslucid.png)
 
-> ⚠️ **Note**: This theme is intended for **dark mode**. Please enable Windows dark mode to ensure proper visibility of text and indicators.
+**Note**: This theme is intended for **dark mode**. Please enable Windows dark mode to ensure proper visibility of text and indicators.
 
 #  Overview
 
@@ -74,25 +74,3 @@ You can manually import the styles like this:
 - Enable dark mode in Windows for consistency.
 - Set taskbar background effects via system personalization (e.g., transparency effects).
 - Use app labels if desired via the **Taskbar Labels for Windows 11** Windhawk mod.
-
-##  Preview
-
-Here's how the `xtranslucid` theme looks with app icons centered and the background fully transparent:
-
-![Demonstration](files/xtranslucid.png)
-
-##  Additional Suggestions
-
-For a better look and compatibility, consider combining this style with:
-
-- **Taskbar Labels** – to display app names next to icons.
-- **Taskbar Clock Customization** – to style the clock to match your setup.
-- **Taskbar Height and Icon Size** – to adjust proportions for a more compact or expanded appearance.
-
-##  Customize Further
-
-You can easily expand this theme by adding:
-
-- Corner radii to buttons for rounded aesthetics.
-- Color overlays or borders if needed.
-- Re-enable the running indicators with different colors.
