@@ -41,10 +41,10 @@ Inspired by deep ocean tones, offering a cool, calm appearance.
 
 ---
 
-### `xgold.json`
+### [xgold](xgold/README.md)
 A bold and shiny golden theme for a luxurious look.
 
-![xgold](screenshots/xgold.png)
+![xgold](xgold/files/xgold.png)
 
 ---
 
