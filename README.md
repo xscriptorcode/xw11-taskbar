@@ -55,10 +55,10 @@ A modern purple-toned style with vibrant flair.
 
 ---
 
-### `xicegray.json`
+### [xicegray](xicegray/README.md)
 A clean and soft icy gray theme for clarity and neutrality.
 
-![xicegray](screenshots/xicegray.png)
+![xicegray](xicegray/files/xicegray.png)
 
 ---
 
