@@ -4,7 +4,7 @@
 
 ![Demonstration](files/xblackgold.png)
 
-> ⚠️ **Note**: This theme is intended for **dark mode setups**. Please enable Windows dark mode for proper visibility of the golden accents and black background.
+**Note**: This theme is intended for **dark mode setups**. Please enable Windows dark mode for proper visibility of the golden accents and black background.
 
 ---
 
@@ -219,12 +219,3 @@ To manually apply this theme:
 - Set display scale to 100% for sharpest rendering.
 - Use `Segoe UI`, `JetBrains Mono` or similar fonts for consistency.
 
----
-
-##  Customize Further
-
-You may extend this theme by:
-
-- Modifying font sizes or colors for different contrast needs.
-- Adding blur or transparency to tray backgrounds.
-- Swapping out the glyph used for the Start button.
