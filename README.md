@@ -25,6 +25,15 @@
 - Terminal - Powershell:
     - **[Powershell](./powershell/README.md)** To see some previews about the Windows terminal customization. To apply the customizations follow this link: **[XTerminal-Repo-Powershell](https://github.com/xscriptor/terminal/tree/main/powershell)**
 
+    - Terminal Apps:
+        - **[Xfetch](https://github.com/xscriptor/xfetch)**: the modern fastfetch written in Rust.
+        - **[Xtop](https://www.google.com/search?q=https://github.com/xscriptor/xtop)**: a minimalist system monitor and task manager built in Rust.
+        - **[Xclock](https://www.google.com/search?q=https://github.com/xscriptor/xclock)**: a lightweight, terminal-based clock utility with customizable time zones.
+        - **[GitNapse](https://www.google.com/search?q=https%3A%2F%2Fgithub.com%2Fxscriptor%2Fgitnapse)**: an interactive TUI tool for efficient Git repository exploration and management.
+    
+    -Linux environment on terminal:
+        - **[X Linux](https://www.github.com/xscriptor/x-linux)**: a minimalist Arch-based distribution spin optimized for development and terminal-centric workflows.
+
 - Visual Studio Code & forks:
     - Themes
         - **[Xscriptor-Themes](https://github.com/xscriptor/vscode/tree/main/themes/xscriptor-themes)**: daily use main themes.
