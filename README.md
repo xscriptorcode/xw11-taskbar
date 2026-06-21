@@ -43,4 +43,20 @@
     - Extensions:
         - **[XGlass](https://github.com/xscriptor/vscode/tree/main/extensions/xglass)**: Make your vscode looks like glass.
 
-*Pd:* here you'll find all the documentation but if you just want to look a preview and see if apply after [XVSCode](./vscode/README.md), to enjoy this fast just download this from extensions store.
+
+<div id="x" align="center">
+<h2>X</h2>
+
+<a href="https://dev.xscriptor.com">
+  <img src="https://xscriptor.github.io/icons/icons/code/product-design/xsvg/verified-filled.svg" width="24" alt="X Web" />
+</a>
+ & 
+<a href="https://github.com/xscriptor">
+  <img src="https://xscriptor.github.io/icons/icons/code/product-design/xsvg/github.svg" width="24" alt="X Github Profile" />
+</a>
+ & 
+<a href="https://www.xscriptor.com">
+  <img src="https://xscriptor.github.io/icons/icons/code/product-design/xsvg/quotes.svg" width="24" alt="Xscriptor web" />
+</a>
+
+</div>
