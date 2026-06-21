@@ -4,9 +4,9 @@
 > Under active development
 
 <div align="center">
-<p>Customizations and utilities to improve accesibility and productivity in your own system</p>
+<p>Customizations and utilities to improve accessibility and productivity in your own system</p>
 
-![windows](https://xscriptor.github.io/badges/os/windows.svg) ![mit](https://xscriptor.github.io/badges/licenses/mit.svg) ![shell](https://xscriptor.github.io/badges/languages/shell.svg) ![powershell](https://xscriptor.github.io/badges/languages/powershell.svg) ![vscode](https://xscriptor.github.io/badges/editors/vscode.svg)
+![Windows 11](https://img.shields.io/badge/Windows-11-0078D4?logo=windows&logoColor=white) ![Windhawk](https://img.shields.io/badge/Windhawk-Taskbar-FF6F00) ![PowerShell](https://img.shields.io/badge/PowerShell-7-5391FE?logo=powershell&logoColor=white) ![VS Code](https://img.shields.io/badge/VS_Code-Extensions-007ACC?logo=visualstudiocode&logoColor=white) ![Themes](https://img.shields.io/badge/Themes-Custom-8A2BE2) ![MIT](https://img.shields.io/badge/License-MIT-yellow)
 </div>
 
 <p align="right"><em>Quick question</em></p>
@@ -23,7 +23,7 @@
     - **[Taskbar](./taskbar/README.md)**: Themes used in the taskbar using **[Windhawk](https://github.com/ramensoftware/windhawk)**.
 
 - Terminal - Powershell:
-    - **[Powershell](./powershell/README..md)** To see some previews about the Windows terminal customization. To apply the customizations follow this link: **[XTerminal-Repo-Powershell](https://github.com/xscriptor/terminal/tree/main/powershell)**
+    - **[Powershell](./powershell/README.md)** To see some previews about the Windows terminal customization. To apply the customizations follow this link: **[XTerminal-Repo-Powershell](https://github.com/xscriptor/terminal/tree/main/powershell)**
 
 - Visual Studio Code & forks:
     - Themes
