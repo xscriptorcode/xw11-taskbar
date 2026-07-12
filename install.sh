@@ -2,39 +2,40 @@
 
 set -e
 
+REPO_URL="https://github.com/xscriptor/macosx.git"
+DOTFILES_DIR="$HOME/.macosx"
 CONFIG_DIR="$HOME/.config"
-REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 echo "==> Installing Xscriptor macOS dotfiles ..."
 
+echo "  -> Fetching dotfiles ..."
+if [ -d "$DOTFILES_DIR" ]; then
+  git -C "$DOTFILES_DIR" pull --ff-only 2>/dev/null || true
+else
+  git clone "$REPO_URL" "$DOTFILES_DIR"
+fi
+
 if ! command -v brew &>/dev/null; then
-  echo "==> Installing Homebrew ..."
+  echo "  -> Installing Homebrew ..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-echo "==> Installing packages ..."
+echo "  -> Installing packages ..."
 brew install sketchybar aerospace
 
 if ! fc-list | grep -qi "Hack Nerd Font"; then
-  echo "==> Installing Hack Nerd Font ..."
+  echo "  -> Installing Hack Nerd Font ..."
   brew install --cask font-hack-nerd-font
 fi
 
-echo "==> Linking sketchybar config ..."
-mkdir -p "$CONFIG_DIR/sketchybar"
-if [ -d "$CONFIG_DIR/sketchybar" ]; then
-  cp -R "$REPO_DIR/sketchybar/"* "$CONFIG_DIR/sketchybar/"
-fi
+echo "  -> Installing configs ..."
+mkdir -p "$CONFIG_DIR/sketchybar" "$CONFIG_DIR/aerospace"
+cp -R "$DOTFILES_DIR/sketchybar/"* "$CONFIG_DIR/sketchybar/"
+cp "$DOTFILES_DIR/aerospace/aerospace.toml" "$CONFIG_DIR/aerospace/aerospace.toml"
 
-echo "==> Linking aerospace config ..."
-mkdir -p "$CONFIG_DIR/aerospace"
-if [ -f "$REPO_DIR/aerospace/aerospace.toml" ]; then
-  cp "$REPO_DIR/aerospace/aerospace.toml" "$CONFIG_DIR/aerospace/aerospace.toml"
-fi
-
-echo "==> Starting services ..."
+echo "  -> Starting services ..."
 brew services start sketchybar 2>/dev/null || true
 aerospace reload-config 2>/dev/null || true
 
 echo ""
-echo "==> Done! Reload Aerospace with Ctrl+Shift+r if needed."
+echo "==> Done. Reload Aerospace with Ctrl+Shift+r if needed."

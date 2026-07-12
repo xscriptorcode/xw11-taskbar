@@ -14,12 +14,21 @@
 
 <hr />
 
+<p align="center">
+  <img src="https://i.imgur.com/8vow4Jp.jpeg" width="900" alt="Preview" />
+</p>
+
+<hr />
+
 <h2 align="center">Contents</h2>
 <ul>
   <li><a href="#about">About</a></li>
+  <li><a href="#preview">Preview</a></li>
   <li><a href="#structure">Structure</a></li>
   <li><a href="#quick-install">Quick Install</a></li>
+  <li><a href="#remote-install">Remote Install</a></li>
   <li><a href="#manual-install">Manual Install</a></li>
+  <li><a href="#uninstall">Uninstall</a></li>
   <li><a href="#usage">Usage</a></li>
   <li><a href="#keybindings">Keybindings</a></li>
   <li><a href="#customization">Customization</a></li>
@@ -39,11 +48,19 @@
   <li><strong>AeroSpace</strong> — A tiling window manager with virtual desktops (workspaces), keyboard-driven navigation, and automatic window placement rules.</li>
 </ul>
 
+<h2 align="center" id="preview">Preview</h2>
+
+<p align="center">
+  <img src="./assets/preview.jpg" width="900" alt="macOS Xscriptor desktop preview" />
+</p>
+
 <h2 align="center" id="structure">Structure</h2>
 <ul>
   <li><code>sketchybar/</code> — SketchyBar config: bar styles, items, plugins, colors, and icons.</li>
   <li><code>aerospace/</code> — AeroSpace config: workspace bindings, gaps, window rules, and keybindings.</li>
   <li><code>install.sh</code> — Automated install script for dependencies and dotfiles.</li>
+  <li><code>uninstall.sh</code> — Removes configs, services, and packages.</li>
+  <li><code>assets/</code> — Screenshots and branding.</li>
 </ul>
 
 <h2 align="center" id="quick-install">Quick Install</h2>
@@ -53,6 +70,23 @@ git clone https://github.com/xscriptor/macosx.git ~/macosx-dotfiles
 cd ~/macosx-dotfiles
 chmod +x install.sh
 ./install.sh
+</pre>
+
+<h2 align="center" id="remote-install">Remote Install</h2>
+
+<p>Run directly from the repo without cloning:</p>
+
+<pre>
+# Install
+curl -fsSL https://raw.githubusercontent.com/xscriptor/macosx/main/install.sh | bash
+
+# Or with wget
+wget -qO- https://raw.githubusercontent.com/xscriptor/macosx/main/install.sh | bash
+</pre>
+
+<pre>
+# Uninstall
+curl -fsSL https://raw.githubusercontent.com/xscriptor/macosx/main/uninstall.sh | bash
 </pre>
 
 <h2 align="center" id="manual-install">Manual Install</h2>
@@ -66,6 +100,21 @@ chmod +x install.sh
   <li>Start services: <code>brew services start sketchybar</code>.</li>
   <li>Reload AeroSpace: <code>aerospace reload-config</code>.</li>
 </ol>
+
+<h2 align="center" id="uninstall">Uninstall</h2>
+
+<pre>
+git clone https://github.com/xscriptor/macosx.git ~/macosx-dotfiles
+cd ~/macosx-dotfiles
+chmod +x uninstall.sh
+./uninstall.sh
+</pre>
+
+<p>Or run remotely:</p>
+
+<pre>
+curl -fsSL https://raw.githubusercontent.com/xscriptor/macosx/main/uninstall.sh | bash
+</pre>
 
 <h2 align="center" id="usage">Usage</h2>
 
