@@ -14,6 +14,8 @@
 
 <hr />
 
+<h2 align="center" id="preview">Preview</h2>
+
 <p align="center">
   <img src="https://i.imgur.com/8vow4Jp.jpeg" width="900" alt="Preview" />
 </p>
@@ -48,11 +50,6 @@
   <li><strong>AeroSpace</strong> — A tiling window manager with virtual desktops (workspaces), keyboard-driven navigation, and automatic window placement rules.</li>
 </ul>
 
-<h2 align="center" id="preview">Preview</h2>
-
-<p align="center">
-  <img src="./assets/preview.jpg" width="900" alt="macOS Xscriptor desktop preview" />
-</p>
 
 <h2 align="center" id="structure">Structure</h2>
 <ul>
