@@ -12,7 +12,7 @@
 <p align="right"><em>Quick question</em></p>
 
 <div align="center">
-  <img src="./assets/images/screenshots/preview1.png" alt="preview" width="80%" />
+  <img src="placeholderwaitingforimage" alt="preview" width="80%" />
 </div>
 
 <p align="left"><em>Do you want to improve the appearance of your Windows and make it more accessible?<em></p>
