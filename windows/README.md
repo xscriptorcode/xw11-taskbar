@@ -23,7 +23,7 @@
     - **[Taskbar](./taskbar/README.md)**: Themes used in the taskbar using **[Windhawk](https://github.com/ramensoftware/windhawk)**.
 
 - Terminal - Powershell:
-    - **[Powershell](./powershell/README.md)** To see some previews about the Windows terminal customization. To apply the customizations follow this link: **[XTerminal-Repo-Powershell](https://github.com/xscriptor/terminal/tree/main/powershell)**
+    - **[Powershell](./powershell/README.md)** To see some previews about the Windows terminal customization. To apply the customizations follow this link: **[XTerminal-Repo-Powershell](https://github.com/xscriptor-colors/terminal/tree/main/powershell)**
 
     - Terminal Apps:
         - **[Xfetch](https://github.com/xscriptor/xfetch)**: the modern fastfetch written in Rust.
@@ -36,18 +36,18 @@
 
 - Visual Studio Code & forks:
     - Themes
-        - **[Xscriptor-Themes](https://github.com/xscriptor/vscode/tree/main/themes/xscriptor-themes)**: daily use main themes.
+        - **[Xscriptor-Themes](https://github.com/xscriptor-colors/vscode/tree/main/themes/xscriptor-themes)**: daily use main themes.
         
-        - **[X-Dark-Colors](https://github.com/xscriptor/vscode/tree/main/themes/x-dark-colors)**: occasional themes.
+        - **[X-Dark-Colors](https://github.com/xscriptor-colors/vscode/tree/main/themes/x-dark-colors)**: occasional themes.
 
     - Extensions:
-        - **[XGlass](https://github.com/xscriptor/vscode/tree/main/extensions/xglass)**: Make your vscode looks like glass.
+        - **[XGlass](https://github.com/xscriptor-colors/vscode/tree/main/extensions/xglass)**: Make your vscode looks like glass.
 
 
 <div id="x" align="center">
 <h2>X</h2>
 
-<a href="https://dev.xscriptor.com">
+<a href="https://xscriptor.io">
   <img src="https://xscriptor.github.io/icons/icons/code/product-design/xsvg/verified-filled.svg" width="24" alt="X Web" />
 </a>
  & 
