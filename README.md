@@ -19,20 +19,20 @@
 
 <h2 align="center">Related Repositories</h2>
 
-- **[Terminal](https://github.com/xscriptor/terminal)** &mdash; 12 themes for 26+ terminals
+- **[Terminal](https://github.com/xscriptor-colors/terminal)** &mdash; 12 themes for 26+ terminals
 - **[X Linux](https://github.com/xscriptor/x-linux)** &mdash; Arch-based spin with xpm/xpkg
-- **[Hyprland](https://github.com/xscriptor/hyprland)** &mdash; QML shell + Matugen dynamic theming
-- **[Nvim](https://github.com/xscriptor/nvim)** &mdash; Neovim config
-- **[VSCode](https://github.com/xscriptor/vscode)** &mdash; themes + XGlass extension
-- **[JetBrains](https://github.com/xscriptor/jetbrains)** &mdash; IDE settings
-- **[Obsidian](https://github.com/xscriptor/obsidian)** &mdash; vault theme
+- **[Hyprland](https://github.com/xscriptor-colors/hyprland)** &mdash; QML shell + Matugen dynamic theming
+- **[Nvim](https://github.com/xscriptor-colors/nvim)** &mdash; Neovim config
+- **[VSCode](https://github.com/xscriptor-colors/vscode)** &mdash; themes + XGlass extension
+- **[JetBrains](https://github.com/xscriptor-colors/jetbrains)** &mdash; IDE settings
+- **[Obsidian](https://github.com/xscriptor-colors/obsidian)** &mdash; vault theme
 
 
 
 <div id="x" align="center">
 <h2>X</h2>
 
-<a href="https://dev.xscriptor.com">
+<a href="https://xscriptor.io">
   <img src="https://xscriptor.github.io/icons/icons/code/product-design/xsvg/verified-filled.svg" width="24" alt="X Web" />
 </a>
  & 
