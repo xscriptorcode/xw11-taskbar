@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <title>Battery</title>
+  </head>
+  <body class="panel-body">
+    <div class="panel">
+      <div class="title">Battery</div>
+      <div class="row"><span class="label">Charge</span><span class="value cyan" id="charge"></span></div>
+      <div class="row"><span class="label">State</span><span class="value" id="state"></span></div>
+      <div class="row"><span class="label">Health</span><span class="value" id="health"></span></div>
+      <div class="row"><span class="label">Cycles</span><span class="value" id="cycles"></span></div>
+    </div>
+    <script type="module">
+      import { zebar, el, setText, POPUP_CLOSE_KEY } from "./core.js";
+
+      const POPUP = "battery-popup";
+      const providers = zebar.createProviderGroup({ battery: { type: "battery", refreshInterval: 5000 } });
+
+      function render(o) {
+        const b = o.battery;
+        setText("charge", b?.chargePercent != null ? `${Math.round(b.chargePercent)}%` : "\u2014");
+        setText("state", b?.state ?? "\u2014");
+        setText("health", b?.healthPercent != null ? `${Math.round(b.healthPercent)}%` : "\u2014");
+        setText("cycles", b?.cycleCount != null ? String(b.cycleCount) : "\u2014");
+      }
+      render(providers.outputMap);
+      providers.onOutput(() => render(providers.outputMap));
+
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
+      window.addEventListener("storage", (e) => { if (e.key === POPUP_CLOSE_KEY(POPUP) && e.newValue !== "open") close(); });
+      function close() { zebar.currentWidget().close(); }
+    </script>
+  </body>
+</html>

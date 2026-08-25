@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <title>Clock</title>
+  </head>
+  <body>
+    <div class="island" id="island-clock">
+      <span class="icon" id="icon-clock">&#xf017;</span>
+      <span class="value" id="clock"></span>
+    </div>
+    <script type="module">
+      import { zebar, el, setText, CALENDAR_KEY } from "./core.js";
+
+      const CAL_PLACEMENT = {
+        anchor: "top_center",
+        offsetX: "0px",
+        offsetY: "48px",
+        width: "280px",
+        height: "240px",
+        monitorSelection: { type: "primary" },
+        dockToEdge: { enabled: false, edge: null, windowMargin: "0px" },
+      };
+
+      let calendarOpen = localStorage.getItem(CALENDAR_KEY) === "open";
+
+      function renderClock() {
+        const now = new Date();
+        const hh = String(now.getHours()).padStart(2, "0");
+        const mm = String(now.getMinutes()).padStart(2, "0");
+        const dd = String(now.getDate()).padStart(2, "0");
+        setText("clock", `${hh}:${mm} \u00b7 ${dd}`);
+      }
+      renderClock();
+      setInterval(renderClock, 1000);
+
+      el("island-clock").addEventListener("click", async () => {
+        if (calendarOpen) {
+          localStorage.setItem(CALENDAR_KEY, "closed");
+          calendarOpen = false;
+          return;
+        }
+        localStorage.setItem(CALENDAR_KEY, "open");
+        calendarOpen = true;
+        await zebar.startWidget("calendar", CAL_PLACEMENT);
+      });
+
+      window.addEventListener("storage", (event) => {
+        if (event.key === CALENDAR_KEY) {
+          calendarOpen = event.newValue === "open";
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,19 +1,370 @@
 {
-  "$schema": "https://raw.githubusercontent.com/glzr-io/zebar/main/resources/zpack-schema.json",
+  "$schema": "https://github.com/glzr-io/zebar/raw/v3.3.1/resources/zpack-schema.json",
   "name": "xscriptor-colors-neumorphism",
-  "version": "0.1.0",
-  "description": "Soft-UI neumorphic bar with 12 switchable xscriptor-colors palettes: clock, system (host/IP/lang), media, disk, CPU, memory, traffic, volume, battery.",
+  "version": "0.2.0",
+  "description": "Neumorphic single-bar (all indicators) + calendar popup. 12 switchable palettes.",
   "tags": [
     "statusbar",
-    "bar",
-    "neumorphic",
+    "neumorphism",
     "xscriptor"
   ],
   "repositoryUrl": "https://github.com/xscriptor-colors",
   "widgets": [
     {
+      "name": "system",
+      "htmlPath": "./system.html",
+      "zOrder": "top_most",
+      "shownInTaskbar": false,
+      "focused": false,
+      "resizable": false,
+      "transparent": true,
+      "includeFiles": [
+        "*.html",
+        "*.css",
+        "*.js"
+      ],
+      "presets": [
+        {
+          "name": "standalone",
+          "anchor": "top_center",
+          "offsetX": "-477px",
+          "offsetY": "8px",
+          "width": "170px",
+          "height": "28px",
+          "monitorSelection": {
+            "type": "primary"
+          },
+          "dockToEdge": {
+            "enabled": true,
+            "edge": "top",
+            "windowMargin": "8px"
+          }
+        }
+      ]
+    },
+    {
+      "name": "media",
+      "htmlPath": "./media.html",
+      "zOrder": "top_most",
+      "shownInTaskbar": false,
+      "focused": false,
+      "resizable": false,
+      "transparent": true,
+      "includeFiles": [
+        "*.html",
+        "*.css",
+        "*.js"
+      ],
+      "presets": [
+        {
+          "name": "standalone",
+          "anchor": "top_center",
+          "offsetX": "-311px",
+          "offsetY": "8px",
+          "width": "150px",
+          "height": "28px",
+          "monitorSelection": {
+            "type": "primary"
+          },
+          "dockToEdge": {
+            "enabled": true,
+            "edge": "top",
+            "windowMargin": "8px"
+          }
+        }
+      ]
+    },
+    {
+      "name": "disk",
+      "htmlPath": "./disk.html",
+      "zOrder": "top_most",
+      "shownInTaskbar": false,
+      "focused": false,
+      "resizable": false,
+      "transparent": true,
+      "includeFiles": [
+        "*.html",
+        "*.css",
+        "*.js"
+      ],
+      "presets": [
+        {
+          "name": "standalone",
+          "anchor": "top_center",
+          "offsetX": "-180px",
+          "offsetY": "8px",
+          "width": "100px",
+          "height": "28px",
+          "monitorSelection": {
+            "type": "primary"
+          },
+          "dockToEdge": {
+            "enabled": true,
+            "edge": "top",
+            "windowMargin": "8px"
+          }
+        }
+      ]
+    },
+    {
+      "name": "clock",
+      "htmlPath": "./clock.html",
+      "zOrder": "top_most",
+      "shownInTaskbar": false,
+      "focused": false,
+      "resizable": false,
+      "transparent": true,
+      "includeFiles": [
+        "*.html",
+        "*.css",
+        "*.js"
+      ],
+      "presets": [
+        {
+          "name": "standalone",
+          "anchor": "top_center",
+          "offsetX": "-79px",
+          "offsetY": "8px",
+          "width": "90px",
+          "height": "28px",
+          "monitorSelection": {
+            "type": "primary"
+          },
+          "dockToEdge": {
+            "enabled": true,
+            "edge": "top",
+            "windowMargin": "8px"
+          }
+        }
+      ]
+    },
+    {
+      "name": "cpu",
+      "htmlPath": "./cpu.html",
+      "zOrder": "top_most",
+      "shownInTaskbar": false,
+      "focused": false,
+      "resizable": false,
+      "transparent": true,
+      "includeFiles": [
+        "*.html",
+        "*.css",
+        "*.js"
+      ],
+      "presets": [
+        {
+          "name": "standalone",
+          "anchor": "top_center",
+          "offsetX": "22px",
+          "offsetY": "8px",
+          "width": "100px",
+          "height": "28px",
+          "monitorSelection": {
+            "type": "primary"
+          },
+          "dockToEdge": {
+            "enabled": true,
+            "edge": "top",
+            "windowMargin": "8px"
+          }
+        }
+      ]
+    },
+    {
+      "name": "memory",
+      "htmlPath": "./memory.html",
+      "zOrder": "top_most",
+      "shownInTaskbar": false,
+      "focused": false,
+      "resizable": false,
+      "transparent": true,
+      "includeFiles": [
+        "*.html",
+        "*.css",
+        "*.js"
+      ],
+      "presets": [
+        {
+          "name": "standalone",
+          "anchor": "top_center",
+          "offsetX": "128px",
+          "offsetY": "8px",
+          "width": "100px",
+          "height": "28px",
+          "monitorSelection": {
+            "type": "primary"
+          },
+          "dockToEdge": {
+            "enabled": true,
+            "edge": "top",
+            "windowMargin": "8px"
+          }
+        }
+      ]
+    },
+    {
+      "name": "traffic",
+      "htmlPath": "./traffic.html",
+      "zOrder": "top_most",
+      "shownInTaskbar": false,
+      "focused": false,
+      "resizable": false,
+      "transparent": true,
+      "includeFiles": [
+        "*.html",
+        "*.css",
+        "*.js"
+      ],
+      "presets": [
+        {
+          "name": "standalone",
+          "anchor": "top_center",
+          "offsetX": "254px",
+          "offsetY": "8px",
+          "width": "140px",
+          "height": "28px",
+          "monitorSelection": {
+            "type": "primary"
+          },
+          "dockToEdge": {
+            "enabled": true,
+            "edge": "top",
+            "windowMargin": "8px"
+          }
+        }
+      ]
+    },
+    {
+      "name": "volume",
+      "htmlPath": "./volume.html",
+      "zOrder": "top_most",
+      "shownInTaskbar": false,
+      "focused": false,
+      "resizable": false,
+      "transparent": true,
+      "includeFiles": [
+        "*.html",
+        "*.css",
+        "*.js"
+      ],
+      "presets": [
+        {
+          "name": "standalone",
+          "anchor": "top_center",
+          "offsetX": "365px",
+          "offsetY": "8px",
+          "width": "70px",
+          "height": "28px",
+          "monitorSelection": {
+            "type": "primary"
+          },
+          "dockToEdge": {
+            "enabled": true,
+            "edge": "top",
+            "windowMargin": "8px"
+          }
+        }
+      ]
+    },
+    {
+      "name": "battery",
+      "htmlPath": "./battery.html",
+      "zOrder": "top_most",
+      "shownInTaskbar": false,
+      "focused": false,
+      "resizable": false,
+      "transparent": true,
+      "includeFiles": [
+        "*.html",
+        "*.css",
+        "*.js"
+      ],
+      "presets": [
+        {
+          "name": "standalone",
+          "anchor": "top_center",
+          "offsetX": "441px",
+          "offsetY": "8px",
+          "width": "70px",
+          "height": "28px",
+          "monitorSelection": {
+            "type": "primary"
+          },
+          "dockToEdge": {
+            "enabled": true,
+            "edge": "top",
+            "windowMargin": "8px"
+          }
+        }
+      ]
+    },
+    {
+      "name": "theme",
+      "htmlPath": "./theme.html",
+      "zOrder": "top_most",
+      "shownInTaskbar": false,
+      "focused": false,
+      "resizable": false,
+      "transparent": true,
+      "includeFiles": [
+        "*.html",
+        "*.css",
+        "*.js"
+      ],
+      "presets": [
+        {
+          "name": "standalone",
+          "anchor": "top_center",
+          "offsetX": "522px",
+          "offsetY": "8px",
+          "width": "80px",
+          "height": "28px",
+          "monitorSelection": {
+            "type": "primary"
+          },
+          "dockToEdge": {
+            "enabled": true,
+            "edge": "top",
+            "windowMargin": "8px"
+          }
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "htmlPath": "./calendar.html",
+      "zOrder": "top_most",
+      "shownInTaskbar": false,
+      "focused": false,
+      "resizable": false,
+      "transparent": true,
+      "includeFiles": [
+        "*.html",
+        "*.css",
+        "*.js"
+      ],
+      "presets": [
+        {
+          "name": "popup",
+          "anchor": "top_center",
+          "offsetX": "0px",
+          "offsetY": "48px",
+          "width": "280px",
+          "height": "240px",
+          "monitorSelection": {
+            "type": "primary"
+          },
+          "dockToEdge": {
+            "enabled": false,
+            "edge": null,
+            "windowMargin": "0px"
+          }
+        }
+      ]
+    },
+    {
       "name": "bar",
-      "htmlPath": "./index.html",
+      "htmlPath": "./bar.html",
       "zOrder": "top_most",
       "shownInTaskbar": false,
       "focused": false,
@@ -33,12 +384,236 @@
           "width": "50%",
           "height": "32px",
           "monitorSelection": {
-            "type": "primary"
+            "type": "all"
           },
           "dockToEdge": {
             "enabled": true,
             "edge": "top",
             "windowMargin": "8px"
+          }
+        }
+      ]
+    },
+    {
+      "name": "system-popup",
+      "htmlPath": "./system-popup.html",
+      "zOrder": "top_most",
+      "shownInTaskbar": false,
+      "focused": false,
+      "resizable": false,
+      "transparent": true,
+      "includeFiles": [
+        "*.html",
+        "*.css",
+        "*.js"
+      ],
+      "presets": [
+        {
+          "name": "popup",
+          "anchor": "top_center",
+          "offsetX": "0px",
+          "offsetY": "48px",
+          "width": "280px",
+          "height": "130px",
+          "monitorSelection": {
+            "type": "primary"
+          },
+          "dockToEdge": {
+            "enabled": false,
+            "edge": null,
+            "windowMargin": "0px"
+          }
+        }
+      ]
+    },
+    {
+      "name": "media-popup",
+      "htmlPath": "./media-popup.html",
+      "zOrder": "top_most",
+      "shownInTaskbar": false,
+      "focused": false,
+      "resizable": false,
+      "transparent": true,
+      "includeFiles": [
+        "*.html",
+        "*.css",
+        "*.js"
+      ],
+      "presets": [
+        {
+          "name": "popup",
+          "anchor": "top_center",
+          "offsetX": "0px",
+          "offsetY": "48px",
+          "width": "280px",
+          "height": "150px",
+          "monitorSelection": {
+            "type": "primary"
+          },
+          "dockToEdge": {
+            "enabled": false,
+            "edge": null,
+            "windowMargin": "0px"
+          }
+        }
+      ]
+    },
+    {
+      "name": "disk-popup",
+      "htmlPath": "./disk-popup.html",
+      "zOrder": "top_most",
+      "shownInTaskbar": false,
+      "focused": false,
+      "resizable": false,
+      "transparent": true,
+      "includeFiles": [
+        "*.html",
+        "*.css",
+        "*.js"
+      ],
+      "presets": [
+        {
+          "name": "popup",
+          "anchor": "top_center",
+          "offsetX": "0px",
+          "offsetY": "48px",
+          "width": "300px",
+          "height": "180px",
+          "monitorSelection": {
+            "type": "primary"
+          },
+          "dockToEdge": {
+            "enabled": false,
+            "edge": null,
+            "windowMargin": "0px"
+          }
+        }
+      ]
+    },
+    {
+      "name": "traffic-popup",
+      "htmlPath": "./traffic-popup.html",
+      "zOrder": "top_most",
+      "shownInTaskbar": false,
+      "focused": false,
+      "resizable": false,
+      "transparent": true,
+      "includeFiles": [
+        "*.html",
+        "*.css",
+        "*.js"
+      ],
+      "presets": [
+        {
+          "name": "popup",
+          "anchor": "top_center",
+          "offsetX": "0px",
+          "offsetY": "48px",
+          "width": "280px",
+          "height": "150px",
+          "monitorSelection": {
+            "type": "primary"
+          },
+          "dockToEdge": {
+            "enabled": false,
+            "edge": null,
+            "windowMargin": "0px"
+          }
+        }
+      ]
+    },
+    {
+      "name": "battery-popup",
+      "htmlPath": "./battery-popup.html",
+      "zOrder": "top_most",
+      "shownInTaskbar": false,
+      "focused": false,
+      "resizable": false,
+      "transparent": true,
+      "includeFiles": [
+        "*.html",
+        "*.css",
+        "*.js"
+      ],
+      "presets": [
+        {
+          "name": "popup",
+          "anchor": "top_center",
+          "offsetX": "0px",
+          "offsetY": "48px",
+          "width": "280px",
+          "height": "140px",
+          "monitorSelection": {
+            "type": "primary"
+          },
+          "dockToEdge": {
+            "enabled": false,
+            "edge": null,
+            "windowMargin": "0px"
+          }
+        }
+      ]
+    },
+    {
+      "name": "cpu-popup",
+      "htmlPath": "./cpu-popup.html",
+      "zOrder": "top_most",
+      "shownInTaskbar": false,
+      "focused": false,
+      "resizable": false,
+      "transparent": true,
+      "includeFiles": [
+        "*.html",
+        "*.css",
+        "*.js"
+      ],
+      "presets": [
+        {
+          "name": "popup",
+          "anchor": "top_center",
+          "offsetX": "0px",
+          "offsetY": "48px",
+          "width": "280px",
+          "height": "140px",
+          "monitorSelection": {
+            "type": "primary"
+          },
+          "dockToEdge": {
+            "enabled": false,
+            "edge": null,
+            "windowMargin": "0px"
+          }
+        }
+      ]
+    },
+    {
+      "name": "memory-popup",
+      "htmlPath": "./memory-popup.html",
+      "zOrder": "top_most",
+      "shownInTaskbar": false,
+      "focused": false,
+      "resizable": false,
+      "transparent": true,
+      "includeFiles": [
+        "*.html",
+        "*.css",
+        "*.js"
+      ],
+      "presets": [
+        {
+          "name": "popup",
+          "anchor": "top_center",
+          "offsetX": "0px",
+          "offsetY": "48px",
+          "width": "280px",
+          "height": "130px",
+          "monitorSelection": {
+            "type": "primary"
+          },
+          "dockToEdge": {
+            "enabled": false,
+            "edge": null,
+            "windowMargin": "0px"
           }
         }
       ]

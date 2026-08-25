@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <title>Volume</title>
+  </head>
+  <body>
+    <div class="island" id="island">
+      <span class="icon" id="icon-volume">&#xf028;</span>
+      <span class="value" id="volume"></span>
+      <span class="meter" id="meter-volume"><span class="meter-fill"></span></span>
+    </div>
+    <script type="module">
+      import { zebar, el, setText, setVisible, meter, formatSpeed, truncate } from "./core.js";
+
+    const GLYPHS = ["\uf026", "\uf026", "\uf027", "\uf027", "\uf028"];
+    const providers = zebar.createProviderGroup({ audio: { type: "audio", refreshInterval: 2000 } });
+    function render(o) {
+      const d = o.audio?.defaultPlaybackDevice;
+      if (!d) { setVisible("island", false); return; }
+      const volume = d.volume ?? 0;
+      const muted = d.isMuted || volume === 0;
+      setText("volume-icon", GLYPHS[muted ? 0 : Math.min(4, Math.ceil(volume / 25))]);
+      setText("volume", muted ? "MUTE" : `${Math.round(volume)}%`);
+      setVisible("island", true);
+    }
+    render(providers.outputMap);
+    providers.onOutput(() => render(providers.outputMap));
+    el("island").addEventListener("click", () => {
+      const d = providers.outputMap.audio?.defaultPlaybackDevice;
+      if (!d) return;
+      const muted = d.isMuted || (d.volume ?? 0) === 0;
+      providers.outputMap.audio?.setVolume(muted ? 60 : 0);
+    });
+    </script>
+  </body>
+</html>

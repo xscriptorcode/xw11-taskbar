@@ -1,4 +1,5 @@
-/* X palette tokens — themeable at runtime via palettes.js (12 palettes). */
+/* Shared neumorphic styles for every widget in the pack.
+   Each widget window hosts ONE island (or a panel, for the calendar). */
 :root {
 	--bg: #050505;
 	--surface: #17171e;
@@ -32,41 +33,20 @@ body {
 	background: transparent;
 }
 
-/* Soft UI / neumorphism.
-   Depth hierarchy: the panel is EXTRUDED from the wallpaper (dual outer
-   shadows, light top-left / dark bottom-right), the islands are RECESSED
-   into the panel (inset shadows, same surface color), meters deeper still. */
-#bar {
+body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: 6px;
-	width: fit-content;
-	height: 100%;
-	margin: 0 auto;
-	padding: 0 10px;
-	background: var(--surface);
-	border-radius: 999px;
-	box-shadow:
-		7px 7px 16px rgba(0, 0, 0, 0.75),
-		-7px -7px 16px rgba(255, 255, 255, 0.05),
-		inset 1px 1px 1px rgba(255, 255, 255, 0.06);
 }
 
-.group {
-	display: flex;
-	align-items: center;
-	gap: 6px;
-	min-width: 0;
-}
-
-/* Recessed island: inset bevels carve it into the panel surface.
+/* Neumorphic island: recessed into the surface (inset bevels).
    Hover extrudes it; press recesses it deeper. */
 .island {
 	display: flex;
 	align-items: center;
+	width: 100%;
 	height: 22px;
-	padding: 0 8px;
+	padding: 0 10px;
 	border-radius: 11px;
 	background: var(--surface);
 	box-shadow:
@@ -100,17 +80,14 @@ body {
 .island .icon {
 	font-size: 11px;
 	color: var(--cyan);
-	padding-right: 6px;
+	padding-right: 5px;
 	text-shadow: 0 0 10px rgba(90, 212, 230, 0.35);
-}
-
-.island .icon:last-child {
-	padding-right: 0;
+	flex-shrink: 0;
 }
 
 .island .value {
 	font-size: 10px;
-	letter-spacing: 0.4px;
+	letter-spacing: 0.3px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -120,40 +97,51 @@ body {
 	color: var(--text-dim);
 }
 
-#island-clock .value {
-	font-weight: 600;
-}
-
-#island-cpu .icon {
+#icon-cpu {
 	color: var(--violet);
 	text-shadow: 0 0 10px rgba(148, 138, 227, 0.35);
 }
 
-#island-memory .icon {
+#icon-memory {
 	color: var(--mint);
 	text-shadow: 0 0 10px rgba(123, 216, 143, 0.3);
 }
 
-#island-disk .icon {
+#icon-disk {
 	color: var(--orange);
 	text-shadow: 0 0 10px rgba(253, 147, 83, 0.3);
 }
 
-#island-traffic .icon {
-	color: var(--cyan);
-	text-shadow: none;
-	font-size: 10px;
-	padding-right: 5px;
+#icon-media {
+	color: var(--pink);
+	text-shadow: 0 0 10px rgba(252, 97, 141, 0.3);
 }
 
-#island-volume,
-#island-theme {
+#icon-battery {
+	color: var(--mint);
+}
+
+#icon-theme {
+	color: var(--text-dim);
+	text-shadow: none;
+}
+
+#icon-system,
+#icon-traffic {
+	font-size: 10px;
+	padding-right: 4px;
+}
+
+#icon-volume {
+	cursor: pointer;
+}
+
+#island-clock {
 	cursor: pointer;
 }
 
 .media-text {
-	max-width: 130px;
-	font-size: 10.5px;
+	font-size: 10px;
 	letter-spacing: 0.2px;
 }
 
@@ -189,4 +177,187 @@ body {
 #meter-disk .meter-fill {
 	background: linear-gradient(90deg, var(--orange), var(--pink));
 	box-shadow: 0 0 8px rgba(253, 147, 83, 0.45);
+}
+
+/* Calendar popup: neumorphic panel */
+body.calendar-body {
+	padding: 8px;
+}
+
+/* Generic neumorphic popup panel (calendar, system, disk, ...) */
+body.panel-body {
+	padding: 8px;
+}
+
+.panel {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	padding: 12px;
+	border-radius: 16px;
+	background: var(--surface);
+	box-shadow:
+		7px 7px 16px rgba(0, 0, 0, 0.7),
+		-7px -7px 16px rgba(255, 255, 255, 0.05),
+		inset 1px 1px 1px rgba(255, 255, 255, 0.06);
+}
+
+.panel .row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	padding: 5px 0;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.panel .row:last-child {
+	border-bottom: none;
+}
+
+.panel .row .label {
+	font-size: 10px;
+	color: var(--text-dim);
+}
+
+.panel .row .value {
+	font-size: 10px;
+	font-weight: 600;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.panel .row .value.cyan {
+	color: var(--cyan);
+}
+
+.panel .title {
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	margin-bottom: 6px;
+}
+
+.panel .sub {
+	font-size: 10px;
+	color: var(--text-dim);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.panel .meter {
+	width: 100%;
+	margin: 0;
+}
+
+/* Popup action buttons (media controls) */
+.actions {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin-top: auto;
+	padding-top: 10px;
+}
+
+.action {
+	font-size: 13px;
+	color: var(--text-dim);
+	padding: 5px 12px;
+	border-radius: 10px;
+	background: var(--surface);
+	box-shadow:
+		inset 2px 2px 5px rgba(0, 0, 0, 0.6),
+		inset -2px -2px 5px rgba(255, 255, 255, 0.055);
+	cursor: pointer;
+	transition: color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.action:hover {
+	color: var(--cyan);
+}
+
+.action:active {
+	box-shadow:
+		inset 3px 3px 7px rgba(0, 0, 0, 0.7),
+		inset -3px -3px 7px rgba(255, 255, 255, 0.06);
+}
+
+/* Calendar popup: neumorphic panel */
+
+.calendar {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	border-radius: 16px;
+	background: var(--surface);
+	box-shadow:
+		7px 7px 16px rgba(0, 0, 0, 0.7),
+		-7px -7px 16px rgba(255, 255, 255, 0.05),
+		inset 1px 1px 1px rgba(255, 255, 255, 0.06);
+}
+
+.calendar .head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 8px;
+}
+
+.calendar .month {
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.4px;
+	text-transform: capitalize;
+}
+
+.calendar .nav {
+	font-size: 10px;
+	color: var(--text-dim);
+	padding: 2px 6px;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: color 0.15s ease, background 0.15s ease;
+}
+
+.calendar .nav:hover {
+	color: var(--cyan);
+	background: var(--surface-lo);
+}
+
+.calendar .grid {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	gap: 2px;
+	text-align: center;
+	flex: 1;
+}
+
+.calendar .dow {
+	font-size: 9px;
+	color: var(--text-faint);
+	padding: 2px 0;
+	align-self: center;
+}
+
+.calendar .day {
+	font-size: 10px;
+	color: var(--text-dim);
+	padding: 3px 0;
+	border-radius: 6px;
+	align-self: center;
+}
+
+.calendar .day.other {
+	color: var(--text-faint);
+}
+
+.calendar .day.today {
+	color: var(--cyan);
+	font-weight: 600;
+	text-shadow: 0 0 8px rgba(90, 212, 230, 0.5);
 }

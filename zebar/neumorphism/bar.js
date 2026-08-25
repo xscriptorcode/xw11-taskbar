@@ -1,4 +1,4 @@
-import * as zebar from "https://esm.sh/zebar@3.0";
+import * as zebar from "https://esm.sh/zebar@3.3.1";
 import { PALETTES } from "./palettes.js";
 
 const providers = zebar.createProviderGroup({
@@ -192,4 +192,66 @@ el("island-volume").addEventListener("click", () => {
   if (!device) return;
   const muted = device.isMuted || (device.volume ?? 0) === 0;
   providers.outputMap.audio?.setVolume(muted ? 60 : 0);
+});
+
+/* Popups: click an island to open its detail popup, click again (or Esc) to close. */
+const POPUP_KEY = (name) => `xscriptor-popup-${name}`;
+
+function togglePopup(name, width, height) {
+  const key = POPUP_KEY(name);
+  if (localStorage.getItem(key) === "open") {
+    localStorage.setItem(key, "closed");
+    return;
+  }
+  localStorage.setItem(key, "open");
+  zebar.startWidget(name, {
+    anchor: "top_center",
+    offsetX: "0px",
+    offsetY: "48px",
+    width: `${width}px`,
+    height: `${height}px`,
+    monitorSelection: { type: "primary" },
+    dockToEdge: { enabled: false, edge: null, windowMargin: "0px" },
+  }).catch(() => {
+    localStorage.setItem(key, "closed");
+  });
+}
+
+el("island-system").addEventListener("click", () => togglePopup("system-popup", 280, 130));
+el("island-media").addEventListener("click", () => togglePopup("media-popup", 280, 150));
+el("island-disk").addEventListener("click", () => togglePopup("disk-popup", 300, 180));
+el("island-cpu").addEventListener("click", () => togglePopup("cpu-popup", 280, 140));
+el("island-memory").addEventListener("click", () => togglePopup("memory-popup", 280, 130));
+el("island-traffic").addEventListener("click", () => togglePopup("traffic-popup", 280, 160));
+el("island-battery").addEventListener("click", () => togglePopup("battery-popup", 280, 140));
+
+/* Calendar popup: click the clock island to open/close it. */
+const CALENDAR_KEY = "xscriptor-calendar";
+const CAL_PLACEMENT = {
+  anchor: "top_center",
+  offsetX: "0px",
+  offsetY: "48px",
+  width: "280px",
+  height: "240px",
+  monitorSelection: { type: "primary" },
+  dockToEdge: { enabled: false, edge: null, windowMargin: "0px" },
+};
+
+let calendarOpen = localStorage.getItem(CALENDAR_KEY) === "open";
+
+el("island-clock").addEventListener("click", async () => {
+  if (calendarOpen) {
+    localStorage.setItem(CALENDAR_KEY, "closed");
+    calendarOpen = false;
+    return;
+  }
+  localStorage.setItem(CALENDAR_KEY, "open");
+  calendarOpen = true;
+  await zebar.startWidget("calendar", CAL_PLACEMENT);
+});
+
+window.addEventListener("storage", (event) => {
+  if (event.key === CALENDAR_KEY) {
+    calendarOpen = event.newValue === "open";
+  }
 });

@@ -8,12 +8,15 @@ is a self-contained pack (has its own `zpack.json`), mirroring what lives in
 
 | Folder | Pack id | Design |
 |---|---|---|
-| `neumorphism/` | `xscriptor-colors-neumorphism` | Soft-UI neumorphism (extruded panel, recessed islands), 12 switchable palettes, 9 indicators |
+| `neumorphism/` | `xscriptor-colors-neumorphism` | One neumorphic island-widget per indicator (dock at top center) + calendar popup, 12 switchable palettes |
 | `xneon/` | `xneon` | Liquid-glass islands — saved copy of an earlier design |
 
-`neumorphism/` indicators: clock (hour + day), system (host · IP · keyboard
-layout), media, disk, CPU, memory, traffic (down/up), volume (click to mute)
-and battery — with a paint-brush island that cycles the 12 palettes.
+`neumorphism/` widgets: `system` (host · IP · keyboard layout), `media`
+(click = play/pause), `disk`, `clock` (click = calendar popup; Esc/click
+again to close), `cpu`, `memory`, `traffic` (down/up), `volume` (click =
+mute), `battery` and `theme` (click = cycle the 12 palettes across every
+widget). The old single-bar layout is kept as the `bar` widget (not started
+by default).
 
 ## Install Zebar
 
@@ -35,7 +38,7 @@ Copies every pack into `~/.glzr/zebar/` (same folder names, backups as
 
 ## Customization
 
-- **Palette**: the bar's CSS variables are themeable at runtime
+- **Palette**: the widgets' CSS variables are themeable at runtime
   (`palettes.js`). Regenerate it after adding a palette to the canonical
   `yasb/generate.py` PALETTES:
 
@@ -43,10 +46,15 @@ Copies every pack into `~/.glzr/zebar/` (same folder names, backups as
   python generate-palettes.py
   ```
 
-- **Look & layout**: edit `neumorphism/styles.css` and `neumorphism/index.html`.
-  The neumorphic recipe lives in `styles.css` — dual soft shadows (light
-  top-left / dark bottom-right), same-surface colors, inset bevels for the
-  recessed islands and meters.
+- **Look & layout**: edit `neumorphism/styles.css` (shared neumorphic island
+  style) and the per-widget `*.html` files. Dock positions live in
+  `neumorphism/zpack.json` presets (`offsetX`), computed as a centered row.
+  The neumorphic recipe: dual soft shadows (light top-left / dark
+  bottom-right), same-surface colors, inset bevels for the recessed islands.
+
+- Widgets share state through `localStorage` (`core.js`): the `theme` widget
+  cycles palettes and every widget follows; the `clock` widget toggles the
+  calendar via the `xscriptor-calendar` key and `zebar.startWidget()`.
 
 - Widget files are kept flat at each pack root (like the starter pack): Zebar's
   asset server only serves files matching the `includeFiles` globs, and Rust
