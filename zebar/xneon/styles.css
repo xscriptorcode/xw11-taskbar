@@ -1,0 +1,251 @@
+/* xneon — liquid-glass islands (aurora glows, rotating conic edge).
+   Same indicators and 12 switchable palettes as the neumorphism pack. */
+:root {
+	--bg: #050505;
+	--surface: #17171e;
+	--surface-hi: #1c1c24;
+	--surface-lo: #121218;
+	--text: #f7f1ff;
+	--text-dim: #8b8598;
+	--text-faint: #4e4a59;
+	--cyan: #5ad4e6;
+	--mint: #7bd88f;
+	--violet: #948ae3;
+	--pink: #fc618d;
+	--orange: #fd9353;
+	--font: "Hack Nerd Font", "JetBrainsMono NFP", monospace;
+}
+
+@property --angle {
+	syntax: "<angle>";
+	initial-value: 0deg;
+	inherits: false;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: var(--font);
+	font-size: 12px;
+	font-weight: 500;
+	color: var(--text);
+}
+
+html,
+body {
+	height: 100%;
+	overflow: hidden;
+	background: transparent;
+}
+
+/* Floating islands over the wallpaper, centered like a dock */
+#bar {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	width: fit-content;
+	height: 100%;
+	margin: 0 auto;
+	padding: 0 10px;
+}
+
+/* Ambient aurora ground behind the islands */
+#bar::before {
+	content: "";
+	position: absolute;
+	inset: -24px;
+	pointer-events: none;
+	background:
+		radial-gradient(560px 80px at 15% 50%, rgba(90, 212, 230, 0.13), transparent 62%),
+		radial-gradient(560px 80px at 50% 50%, rgba(148, 138, 227, 0.1), transparent 62%),
+		radial-gradient(560px 80px at 85% 50%, rgba(123, 216, 143, 0.09), transparent 62%);
+	filter: blur(16px);
+}
+
+.group {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	min-width: 0;
+}
+
+/* Liquid-glass island: layered gradients, inner glow and a rotating conic edge */
+.island {
+	position: relative;
+	display: flex;
+	align-items: center;
+	height: 22px;
+	padding: 0 9px;
+	border-radius: 12px;
+	background:
+		radial-gradient(130% 130% at 12% 0%, rgba(255, 255, 255, 0.1), transparent 46%),
+		radial-gradient(120% 140% at 88% 100%, rgba(90, 212, 230, 0.08), transparent 55%),
+		linear-gradient(160deg, var(--surface-hi) 0%, var(--surface-lo) 60%, var(--bg) 100%);
+	box-shadow:
+		0 10px 20px -8px rgba(0, 0, 0, 0.8),
+		inset 0 1px 1px rgba(255, 255, 255, 0.09),
+		inset 0 -8px 14px -10px rgba(90, 212, 230, 0.35),
+		inset 0 0 14px rgba(148, 138, 227, 0.06);
+	transition: transform 0.16s ease, filter 0.16s ease;
+	min-width: 0;
+}
+
+.island.hidden {
+	display: none;
+}
+
+/* Rotating sheen edge: a conic gradient masked to a thin ring */
+.island::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	padding: 1px;
+	background: conic-gradient(
+		from var(--angle),
+		transparent 0deg,
+		transparent 230deg,
+		rgba(90, 212, 230, 0.9) 300deg,
+		rgba(148, 138, 227, 0.9) 330deg,
+		rgba(90, 212, 230, 0.5) 350deg,
+		transparent 360deg
+	);
+	-webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+	-webkit-mask-composite: xor;
+	mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+	mask-composite: exclude;
+	animation: spin 7s linear infinite;
+	pointer-events: none;
+}
+
+@keyframes spin {
+	to {
+		--angle: 360deg;
+	}
+}
+
+.island:hover {
+	transform: translateY(-1px);
+	filter: brightness(1.12);
+}
+
+.island:active {
+	transform: translateY(1px) scale(0.99);
+}
+
+/* Gradient icons via background-clip: text */
+.island .icon {
+	font-size: 11px;
+	padding-right: 5px;
+	background: linear-gradient(135deg, #a8e6f5, var(--violet));
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.island .icon:last-child {
+	padding-right: 0;
+}
+
+.island .value {
+	font-size: 10px;
+	letter-spacing: 0.3px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-shadow: 0 0 12px rgba(247, 241, 255, 0.25);
+}
+
+.island .value.dim {
+	color: var(--text-dim);
+}
+
+#island-clock .icon {
+	background: linear-gradient(135deg, #9be9f8, var(--cyan));
+	-webkit-background-clip: text;
+	background-clip: text;
+}
+
+#island-clock .value {
+	font-weight: 600;
+}
+
+#island-cpu .icon {
+	background: linear-gradient(135deg, #c4bdff, var(--violet));
+	-webkit-background-clip: text;
+	background-clip: text;
+}
+
+#island-memory .icon {
+	background: linear-gradient(135deg, #b8f0c8, var(--mint));
+	-webkit-background-clip: text;
+	background-clip: text;
+}
+
+#island-disk .icon {
+	background: linear-gradient(135deg, #ffd0a8, var(--orange));
+	-webkit-background-clip: text;
+	background-clip: text;
+}
+
+#island-media .icon {
+	background: linear-gradient(135deg, #ffb3c8, var(--pink));
+	-webkit-background-clip: text;
+	background-clip: text;
+}
+
+#island-traffic .icon {
+	background: linear-gradient(135deg, #a8e6f5, var(--cyan));
+	-webkit-background-clip: text;
+	background-clip: text;
+	font-size: 10px;
+	padding-right: 4px;
+}
+
+#island-volume,
+#island-theme {
+	cursor: pointer;
+}
+
+.media-text {
+	max-width: 130px;
+	font-size: 10px;
+	letter-spacing: 0.2px;
+}
+
+/* Glassy micro progress meter: sunk track + glowing fill */
+.meter {
+	width: 34px;
+	height: 3px;
+	margin-left: 6px;
+	border-radius: 2px;
+	background: rgba(0, 0, 0, 0.55);
+	box-shadow:
+		inset 1px 1px 3px rgba(0, 0, 0, 0.85),
+		inset -1px -1px 2px rgba(255, 255, 255, 0.05);
+	overflow: hidden;
+	flex-shrink: 0;
+}
+
+.meter-fill {
+	display: block;
+	height: 100%;
+	width: 0%;
+	border-radius: 2px;
+	background: linear-gradient(90deg, var(--cyan), var(--violet));
+	box-shadow: 0 0 10px rgba(90, 212, 230, 0.7);
+	transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#meter-memory .meter-fill {
+	background: linear-gradient(90deg, var(--cyan), var(--mint));
+	box-shadow: 0 0 10px rgba(123, 216, 143, 0.6);
+}
+
+#meter-disk .meter-fill {
+	background: linear-gradient(90deg, var(--orange), var(--pink));
+	box-shadow: 0 0 10px rgba(253, 147, 83, 0.55);
+}

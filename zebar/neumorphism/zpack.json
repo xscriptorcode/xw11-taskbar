@@ -1,0 +1,47 @@
+{
+  "$schema": "https://raw.githubusercontent.com/glzr-io/zebar/main/resources/zpack-schema.json",
+  "name": "xscriptor-colors-neumorphism",
+  "version": "0.1.0",
+  "description": "Soft-UI neumorphic bar with 12 switchable xscriptor-colors palettes: clock, system (host/IP/lang), media, disk, CPU, memory, traffic, volume, battery.",
+  "tags": [
+    "statusbar",
+    "bar",
+    "neumorphic",
+    "xscriptor"
+  ],
+  "repositoryUrl": "https://github.com/xscriptor-colors",
+  "widgets": [
+    {
+      "name": "bar",
+      "htmlPath": "./index.html",
+      "zOrder": "top_most",
+      "shownInTaskbar": false,
+      "focused": false,
+      "resizable": false,
+      "transparent": true,
+      "includeFiles": [
+        "*.html",
+        "*.css",
+        "*.js"
+      ],
+      "presets": [
+        {
+          "name": "top bar",
+          "anchor": "top_center",
+          "offsetX": "0px",
+          "offsetY": "8px",
+          "width": "50%",
+          "height": "32px",
+          "monitorSelection": {
+            "type": "primary"
+          },
+          "dockToEdge": {
+            "enabled": true,
+            "edge": "top",
+            "windowMargin": "8px"
+          }
+        }
+      ]
+    }
+  ]
+}
