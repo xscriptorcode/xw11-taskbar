@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <title>Calendar</title>
+  </head>
+  <body class="calendar-body">
+    <div class="calendar">
+      <div class="head">
+        <span class="nav" id="prev">&#xf053;</span>
+        <span class="month" id="month"></span>
+        <span class="nav" id="next">&#xf054;</span>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+    <script type="module">
+      import { zebar, el, setText, CALENDAR_KEY } from "./core.js";
+
+      const DOWS = ["L", "M", "X", "J", "V", "S", "D"];
+      const now = new Date();
+      let year = now.getFullYear();
+      let month = now.getMonth();
+
+      function render() {
+        const first = new Date(year, month, 1);
+        const days = new Date(year, month + 1, 0).getDate();
+        const leading = (first.getDay() + 6) % 7;
+
+        setText("month", `${first.toLocaleString("es-ES", { month: "long" })} ${year}`);
+
+        const grid = el("grid");
+        grid.innerHTML = "";
+        for (const dow of DOWS) {
+          const cell = document.createElement("span");
+          cell.className = "dow";
+          cell.textContent = dow;
+          grid.appendChild(cell);
+        }
+
+        for (let i = 0; i < leading; i++) {
+          const cell = document.createElement("span");
+          cell.className = "day other";
+          grid.appendChild(cell);
+        }
+
+        const today = new Date();
+        for (let d = 1; d <= days; d++) {
+          const cell = document.createElement("span");
+          cell.className = "day";
+          if (d === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
+            cell.classList.add("today");
+          }
+          cell.textContent = String(d);
+          grid.appendChild(cell);
+        }
+      }
+
+      el("prev").addEventListener("click", () => {
+        month -= 1;
+        if (month < 0) { month = 11; year -= 1; }
+        render();
+      });
+      el("next").addEventListener("click", () => {
+        month += 1;
+        if (month > 11) { month = 0; year += 1; }
+        render();
+      });
+
+      function closeCalendar() {
+        localStorage.setItem(CALENDAR_KEY, "closed");
+        zebar.currentWidget().close();
+      }
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeCalendar();
+      });
+
+      window.addEventListener("storage", (event) => {
+        if (event.key === CALENDAR_KEY && event.newValue !== "open") {
+          zebar.currentWidget().close();
+        }
+      });
+
+      render();
+    </script>
+  </body>
+</html>

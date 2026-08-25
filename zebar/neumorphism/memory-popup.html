@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <title>Memory</title>
+  </head>
+  <body class="panel-body">
+    <div class="panel">
+      <div class="title">Memory</div>
+      <div class="row"><span class="label">Usage</span><span class="value cyan" id="usage"></span></div>
+      <div class="row"><span class="label">RAM</span><span class="value" id="ram"></span></div>
+      <div class="row"><span class="label">Swap</span><span class="value" id="swap"></span></div>
+    </div>
+    <script type="module">
+      import { zebar, el, setText, formatSize, POPUP_CLOSE_KEY } from "./core.js";
+
+      const POPUP = "memory-popup";
+      const providers = zebar.createProviderGroup({ memory: { type: "memory" } });
+
+      function render(o) {
+        const m = o.memory;
+        setText("usage", m?.usage != null ? `${Math.round(m.usage)}%` : "\u2014");
+        setText("ram", m?.usedMemory != null ? `${formatSize(m.usedMemory)} / ${formatSize(m.totalMemory)}` : "\u2014");
+        setText("swap", m?.usedSwap != null ? `${formatSize(m.usedSwap)} / ${formatSize(m.totalSwap)}` : "\u2014");
+      }
+      render(providers.outputMap);
+      providers.onOutput(() => render(providers.outputMap));
+
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
+      window.addEventListener("storage", (e) => { if (e.key === POPUP_CLOSE_KEY(POPUP) && e.newValue !== "open") close(); });
+      function close() { zebar.currentWidget().close(); }
+    </script>
+  </body>
+</html>

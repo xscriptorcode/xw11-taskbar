@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <title>Traffic</title>
+  </head>
+  <body>
+    <div class="island" id="island">
+      <span class="icon" id="icon-traffic">&#xf063;</span>
+      <span class="value" id="traffic-dl"></span><span class="icon" id="icon-traffic-up">&#xf062;</span><span class="value" id="traffic-ul"></span>
+      
+    </div>
+    <script type="module">
+      import { zebar, el, setText, setVisible, meter, formatSpeed, truncate } from "./core.js";
+
+    const providers = zebar.createProviderGroup({ network: { type: "network", refreshInterval: 2000 } });
+    function render(o) {
+      const t = o.network?.traffic;
+      if (!t) { setVisible("island", false); return; }
+      setText("traffic-dl", formatSpeed(t.received?.bytes));
+      setText("traffic-ul", formatSpeed(t.transmitted?.bytes));
+      setVisible("island", true);
+    }
+    render(providers.outputMap);
+    providers.onOutput(() => render(providers.outputMap));
+    </script>
+  </body>
+</html>

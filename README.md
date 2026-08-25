@@ -1,37 +1,144 @@
-
-<h1 align="center">Desktop</h1>
-
-> X dotfiles and system configurations for Linux, macOS, and Windows
-
 <div align="center">
 
-![Linux](https://img.shields.io/badge/Linux-Arch-FCC624?logo=linux&logoColor=black) ![macOS](https://img.shields.io/badge/macOS-Sequoia-000000?logo=apple&logoColor=white) ![Windows](https://img.shields.io/badge/Windows-11-0078D4?logo=windows&logoColor=white) ![PowerShell](https://img.shields.io/badge/PowerShell-7-5391FE?logo=powershell&logoColor=white) ![SketchyBar](https://img.shields.io/badge/SketchyBar-Topbar-5ad4e6) ![AeroSpace](https://img.shields.io/badge/AeroSpace-Tiling-948ae3) ![Windhawk](https://img.shields.io/badge/Windhawk-Taskbar-FF6F00) ![VS Code](https://img.shields.io/badge/VS_Code-Extensions-007ACC?logo=visualstudiocode&logoColor=white) ![MIT](https://img.shields.io/badge/License-MIT-yellow)
+<h1>Windows Xscriptor</h1>
+
+Complete collection of Xscriptor customizations for **Windows 11**: status bars
+(YASB, Zebar), taskbar themes, PowerShell tooling and more — all with the
+Xscriptor palette ecosystem.
+
+[![Windows](https://img.shields.io/badge/Windows-0078D6?logo=windows&logoColor=white)](https://github.com/xscriptor-colors/windows)
+[![YASB](https://img.shields.io/badge/YASB-007ACC)](https://github.com/amnweb/yasb)
+[![Zebar](https://img.shields.io/badge/Zebar-4B32C3)](https://github.com/glzr-io/zebar)
+[![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?logo=powershell&logoColor=white)](https://github.com/PowerShell/PowerShell)
+[![CSS](https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=fff)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![MIT](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
 </div>
 
-<h2 align="center">Platforms</h2>
+<div align="center">
 
-| Platform | Tools | Config |
-|----------|-------|--------|
-| **Linux** | Hyprland, X Linux, Terminal themes, TUI apps | [`./linux/`](./linux/README.md) |
-| **macOS** | SketchyBar, AeroSpace, install scripts | [`./macos/`](./macos/README.md) |
-| **Windows** | Windhawk, PowerShell, VS Code mods | [`./windows/`](./windows/README.md) |
+<h2 id="contents">Contents</h2>
 
-<h2 align="center">Related Repositories</h2>
+<nav>
+  <a href="#repository-structure">Repository Structure</a> ·
+  <a href="#quick-install">Quick Install</a> ·
+  <a href="#usage">Usage</a> ·
+  <a href="#colors">Colors</a> ·
+  <a href="#compatibility">Compatibility</a> ·
+  <a href="#license">License</a> ·
+  <a href="#related-repos">Related Repos</a> ·
+  <a href="#x">X</a>
+</nav>
 
-- **[Terminal](https://github.com/xscriptor-colors/terminal)** &mdash; 12 themes for 26+ terminals
-- **[X Linux](https://github.com/xscriptor/x-linux)** &mdash; Arch-based spin with xpm/xpkg
-- **[Hyprland](https://github.com/xscriptor-colors/hyprland)** &mdash; QML shell + Matugen dynamic theming
-- **[Nvim](https://github.com/xscriptor-colors/nvim)** &mdash; Neovim config
-- **[VSCode](https://github.com/xscriptor-colors/vscode)** &mdash; themes + XGlass extension
-- **[JetBrains](https://github.com/xscriptor-colors/jetbrains)** &mdash; IDE settings
-- **[Obsidian](https://github.com/xscriptor-colors/obsidian)** &mdash; vault theme
+</div>
+
+<div align="center">
+
+<h2 id="repository-structure">Repository Structure</h2>
+
+</div>
+
+- `yasb/`: YASB theme pack — single source layout (`config.yaml`, `themes/`,
+  theme switcher, `deploy.ps1`, `generate.py`) plus the archived per-theme
+  folders in `yasb/splited/`.
+- `zebar/`: Zebar widget packs — `neumorphism/` (soft-UI neumorphic bar with
+  popups and 12 switchable palettes) and `xneon/` (liquid-glass backup),
+  with `deploy.ps1` and `generate-palettes.py`.
+- `windhawk/`: Windhawk mods (planned).
+- `oldfiles/`: Legacy taskbar themes and early Windows experiments.
+
+<div align="center">
+
+<h2 id="quick-install">Quick Install</h2>
+
+</div>
+
+**Remote one-liners** (Windows 11, PowerShell 5.1+, no git needed) — install
+the app if missing and deploy the theme packs from the repo:
+
+```powershell
+irm https://raw.githubusercontent.com/xscriptor-colors/windows/main/windows/yasb/install.ps1 | iex                         # YASB only
+irm https://raw.githubusercontent.com/xscriptor-colors/windows/main/windows/zebar/install.ps1 | iex                        # Zebar only
+```
+
+**Or clone and deploy locally**:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File yasb\deploy.ps1   # YASB (winget install AmN.yasb)
+powershell -ExecutionPolicy Bypass -File zebar\deploy.ps1  # Zebar (winget install glzr-io.zebar)
+```
+
+Then enable the packs from the Zebar tray icon → *My widgets*.
+
+<div align="center">
+
+<h2 id="usage">Usage</h2>
+
+</div>
+
+- **Zebar bar**: one neumorphic island per indicator (system, media, disk,
+  clock, CPU, memory, traffic, volume, battery, theme). Click any island for
+  its detail popup (calendar, controls, usage charts); click the paintbrush
+  to cycle the 12 palettes across every widget; click volume to mute.
+- **YASB bar**: floating neumorphic islands; `theme_switcher` button cycles
+  the 12 theme stylesheets (left = next, right = previous).
+
+<div align="center">
+
+<h2 id="colors">Colors</h2>
+
+</div>
 
 
+<div align="center">
+  <a href="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_x.svg"><img src="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_x.svg" height="100" alt="X"/></a>
+  <a href="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_madrid.svg"><img src="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_madrid.svg" height="100" alt="Madrid"/></a>
+  <a href="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_lahabana.svg"><img src="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_lahabana.svg" height="100" alt="Lahabana"/></a>
+  <a href="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_miami.svg"><img src="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_miami.svg" height="100" alt="Miami"/></a>
+  <a href="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_paris.svg"><img src="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_paris.svg" height="100" alt="Paris"/></a>
+  <a href="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_tokio.svg"><img src="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_tokio.svg" height="100" alt="Tokio"/></a>
+</div>
+<div align="center">
+  <a href="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_oslo.svg"><img src="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_oslo.svg" height="100" alt="Oslo"/></a>
+  <a href="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_helsinki.svg"><img src="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_helsinki.svg" height="100" alt="Helsinki"/></a>
+  <a href="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_berlin.svg"><img src="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_berlin.svg" height="100" alt="Berlin"/></a>
+  <a href="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_london.svg"><img src="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_london.svg" height="100" alt="London"/></a>
+  <a href="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_praha.svg"><img src="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_praha.svg" height="100" alt="Praha"/></a>
+  <a href="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_bogota.svg"><img src="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_bogota.svg" height="100" alt="Bogota"/></a>
+</div>
 
-<div id="x" align="center">
-<h2>X</h2>
+<div align="center">
 
+<h2 id="compatibility">Compatibility</h2>
+
+</div>
+
+- Windows 11, Komorebi/GlazeWM-friendly.
+- Requires the Hack Nerd Font (or any Nerd Font) for icon glyphs.
+
+<div align="center">
+
+<h2 id="license">License</h2>
+
+</div>
+
+- Repository code is under the [MIT License](LICENSE).
+
+<div align="center">
+
+<h2 id="related-repos">Related Repos</h2>
+
+</div>
+
+- [VSCode](https://github.com/xscriptor-colors/vscode)
+- [Terminal](https://github.com/xscriptor-colors/terminal)
+- [Nvim](https://github.com/xscriptor-colors/nvim)
+- [Jetbrains](https://github.com/xscriptor-colors/jetbrains)
+
+<div align="center">
+<h2 id="x">X</h2>
 <a href="https://xscriptor.io">
   <img src="https://xscriptor.github.io/icons/icons/code/product-design/xsvg/verified-filled.svg" width="24" alt="X Web" />
 </a>
@@ -43,5 +150,4 @@
 <a href="https://www.xscriptor.com">
   <img src="https://xscriptor.github.io/icons/icons/code/product-design/xsvg/quotes.svg" width="24" alt="Xscriptor web" />
 </a>
-
 </div>

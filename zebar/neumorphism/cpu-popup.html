@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <title>CPU</title>
+  </head>
+  <body class="panel-body">
+    <div class="panel">
+      <div class="title">CPU</div>
+      <div class="row"><span class="label">Usage</span><span class="value cyan" id="usage"></span></div>
+      <div class="row"><span class="label">Frequency</span><span class="value" id="freq"></span></div>
+      <div class="row"><span class="label">Cores</span><span class="value" id="cores"></span></div>
+      <div class="row"><span class="label">Vendor</span><span class="value" id="vendor"></span></div>
+    </div>
+    <script type="module">
+      import { zebar, el, setText, POPUP_CLOSE_KEY } from "./core.js";
+
+      const POPUP = "cpu-popup";
+      const providers = zebar.createProviderGroup({ cpu: { type: "cpu" } });
+
+      function render(o) {
+        const c = o.cpu;
+        setText("usage", c?.usage != null ? `${Math.round(c.usage)}%` : "\u2014");
+        setText("freq", c?.frequency != null ? `${(c.frequency / 1000).toFixed(2)} GHz` : "\u2014");
+        setText("cores", c?.logicalCoreCount != null ? `${c.logicalCoreCount} logical / ${c.physicalCoreCount} physical` : "\u2014");
+        setText("vendor", c?.vendor ?? "\u2014");
+      }
+      render(providers.outputMap);
+      providers.onOutput(() => render(providers.outputMap));
+
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
+      window.addEventListener("storage", (e) => { if (e.key === POPUP_CLOSE_KEY(POPUP) && e.newValue !== "open") close(); });
+      function close() { zebar.currentWidget().close(); }
+    </script>
+  </body>
+</html>

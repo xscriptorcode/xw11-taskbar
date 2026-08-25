@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <title>Media</title>
+  </head>
+  <body class="panel-body">
+    <div class="panel">
+      <div class="title">Now playing</div>
+      <div class="sub" id="title"></div>
+      <div class="sub" id="artist"></div>
+      <div class="actions">
+        <span class="action" id="prev">&#xf048;</span>
+        <span class="action" id="toggle">&#xf04b;</span>
+        <span class="action" id="next">&#xf04e;</span>
+      </div>
+    </div>
+    <script type="module">
+      import { zebar, el, setText, setVisible, POPUP_CLOSE_KEY } from "./core.js";
+
+      const POPUP = "media-popup";
+      const providers = zebar.createProviderGroup({ media: { type: "media", refreshInterval: 2000 } });
+      const PLAY = "\uf04b";
+      const PAUSE = "\uf04c";
+
+      function render(o) {
+        const s = o.media?.currentSession;
+        const has = !!s?.title;
+        setVisible("title", has);
+        setVisible("artist", has);
+        setVisible("toggle", has);
+        setVisible("prev", has);
+        setVisible("next", has);
+        if (!has) { setText("title", "Nothing playing"); setVisible("title", true); return; }
+        setText("title", s.title);
+        setText("artist", s.artist || "");
+        setVisible("artist", !!s.artist);
+        setText("toggle", s.isPlaying ? PAUSE : PLAY);
+      }
+      render(providers.outputMap);
+      providers.onOutput(() => render(providers.outputMap));
+
+      el("toggle").addEventListener("click", () => providers.outputMap.media?.togglePlayPause());
+      el("prev").addEventListener("click", () => providers.outputMap.media?.previous());
+      el("next").addEventListener("click", () => providers.outputMap.media?.next());
+
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
+      window.addEventListener("storage", (e) => { if (e.key === POPUP_CLOSE_KEY(POPUP) && e.newValue !== "open") close(); });
+      function close() { zebar.currentWidget().close(); }
+    </script>
+  </body>
+</html>

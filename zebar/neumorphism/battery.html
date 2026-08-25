@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <title>Battery</title>
+  </head>
+  <body>
+    <div class="island" id="island">
+      <span class="icon" id="icon-battery">&#xf240;</span>
+      <span class="value" id="battery"></span>
+      <span class="meter" id="meter-battery"><span class="meter-fill"></span></span>
+    </div>
+    <script type="module">
+      import { zebar, el, setText, setVisible, meter, formatSpeed, truncate } from "./core.js";
+
+    const GLYPHS = ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"];
+    const providers = zebar.createProviderGroup({ battery: { type: "battery", refreshInterval: 5000 } });
+    function render(o) {
+      const b = o.battery;
+      if (b?.chargePercent == null) { setVisible("island", false); return; }
+      const charging = b.state === "charging" || b.state === "full";
+      setText("battery-icon", charging ? "\uf0e7" : GLYPHS[Math.min(4, Math.floor(b.chargePercent / 25))]);
+      setText("battery", `${Math.round(b.chargePercent)}%`);
+      setVisible("island", true);
+    }
+    render(providers.outputMap);
+    providers.onOutput(() => render(providers.outputMap));
+    </script>
+  </body>
+</html>

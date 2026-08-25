@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <title>CPU</title>
+  </head>
+  <body>
+    <div class="island" id="island">
+      <span class="icon" id="icon-cpu">&#xf2db;</span>
+      <span class="value" id="cpu"></span>
+      <span class="meter" id="meter-cpu"><span class="meter-fill"></span></span>
+    </div>
+    <script type="module">
+      import { zebar, el, setText, setVisible, meter, formatSpeed, truncate } from "./core.js";
+
+    const providers = zebar.createProviderGroup({ cpu: { type: "cpu" } });
+    function render(o) {
+      const v = o.cpu?.usage;
+      setText("cpu", v !== undefined ? `${Math.round(v)}%` : "\u2014");
+      meter("meter-cpu", v ?? 0);
+    }
+    render(providers.outputMap);
+    providers.onOutput(() => render(providers.outputMap));
+    </script>
+  </body>
+</html>

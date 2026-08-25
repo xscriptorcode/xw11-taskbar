@@ -1,0 +1,363 @@
+/* Shared neumorphic styles for every widget in the pack.
+   Each widget window hosts ONE island (or a panel, for the calendar). */
+:root {
+	--bg: #050505;
+	--surface: #17171e;
+	--surface-hi: #1c1c24;
+	--surface-lo: #121218;
+	--text: #f7f1ff;
+	--text-dim: #8b8598;
+	--text-faint: #4e4a59;
+	--cyan: #5ad4e6;
+	--mint: #7bd88f;
+	--violet: #948ae3;
+	--pink: #fc618d;
+	--orange: #fd9353;
+	--font: "Hack Nerd Font", "JetBrainsMono NFP", monospace;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: var(--font);
+	font-size: 12px;
+	font-weight: 500;
+	color: var(--text);
+}
+
+html,
+body {
+	height: 100%;
+	overflow: hidden;
+	background: transparent;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Neumorphic island: recessed into the surface (inset bevels).
+   Hover extrudes it; press recesses it deeper. */
+.island {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 22px;
+	padding: 0 10px;
+	border-radius: 11px;
+	background: var(--surface);
+	box-shadow:
+		inset 2px 2px 5px rgba(0, 0, 0, 0.6),
+		inset -2px -2px 5px rgba(255, 255, 255, 0.055),
+		inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+	transition: box-shadow 0.18s ease, transform 0.18s ease;
+	min-width: 0;
+}
+
+.island.hidden {
+	display: none;
+}
+
+.island:hover {
+	transform: translateY(-1px);
+	box-shadow:
+		6px 6px 12px rgba(0, 0, 0, 0.7),
+		-6px -6px 12px rgba(255, 255, 255, 0.06),
+		inset 1px 1px 2px rgba(255, 255, 255, 0.06),
+		inset -1px -1px 2px rgba(0, 0, 0, 0.45);
+}
+
+.island:active {
+	transform: translateY(1px);
+	box-shadow:
+		inset 3px 3px 7px rgba(0, 0, 0, 0.7),
+		inset -3px -3px 7px rgba(255, 255, 255, 0.06);
+}
+
+.island .icon {
+	font-size: 11px;
+	color: var(--cyan);
+	padding-right: 5px;
+	text-shadow: 0 0 10px rgba(90, 212, 230, 0.35);
+	flex-shrink: 0;
+}
+
+.island .value {
+	font-size: 10px;
+	letter-spacing: 0.3px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.island .value.dim {
+	color: var(--text-dim);
+}
+
+#icon-cpu {
+	color: var(--violet);
+	text-shadow: 0 0 10px rgba(148, 138, 227, 0.35);
+}
+
+#icon-memory {
+	color: var(--mint);
+	text-shadow: 0 0 10px rgba(123, 216, 143, 0.3);
+}
+
+#icon-disk {
+	color: var(--orange);
+	text-shadow: 0 0 10px rgba(253, 147, 83, 0.3);
+}
+
+#icon-media {
+	color: var(--pink);
+	text-shadow: 0 0 10px rgba(252, 97, 141, 0.3);
+}
+
+#icon-battery {
+	color: var(--mint);
+}
+
+#icon-theme {
+	color: var(--text-dim);
+	text-shadow: none;
+}
+
+#icon-system,
+#icon-traffic {
+	font-size: 10px;
+	padding-right: 4px;
+}
+
+#icon-volume {
+	cursor: pointer;
+}
+
+#island-clock {
+	cursor: pointer;
+}
+
+.media-text {
+	font-size: 10px;
+	letter-spacing: 0.2px;
+}
+
+/* Micro progress meter: recessed track, glowing fill */
+.meter {
+	width: 34px;
+	height: 3px;
+	margin-left: 6px;
+	border-radius: 2px;
+	background: var(--surface-lo);
+	box-shadow:
+		inset 2px 2px 4px rgba(0, 0, 0, 0.75),
+		inset -2px -2px 3px rgba(255, 255, 255, 0.05);
+	overflow: hidden;
+	flex-shrink: 0;
+}
+
+.meter-fill {
+	display: block;
+	height: 100%;
+	width: 0%;
+	border-radius: 2px;
+	background: linear-gradient(90deg, var(--cyan), var(--violet));
+	box-shadow: 0 0 8px rgba(90, 212, 230, 0.5);
+	transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#meter-memory .meter-fill {
+	background: linear-gradient(90deg, var(--cyan), var(--mint));
+	box-shadow: 0 0 8px rgba(123, 216, 143, 0.45);
+}
+
+#meter-disk .meter-fill {
+	background: linear-gradient(90deg, var(--orange), var(--pink));
+	box-shadow: 0 0 8px rgba(253, 147, 83, 0.45);
+}
+
+/* Calendar popup: neumorphic panel */
+body.calendar-body {
+	padding: 8px;
+}
+
+/* Generic neumorphic popup panel (calendar, system, disk, ...) */
+body.panel-body {
+	padding: 8px;
+}
+
+.panel {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	padding: 12px;
+	border-radius: 16px;
+	background: var(--surface);
+	box-shadow:
+		7px 7px 16px rgba(0, 0, 0, 0.7),
+		-7px -7px 16px rgba(255, 255, 255, 0.05),
+		inset 1px 1px 1px rgba(255, 255, 255, 0.06);
+}
+
+.panel .row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	padding: 5px 0;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.panel .row:last-child {
+	border-bottom: none;
+}
+
+.panel .row .label {
+	font-size: 10px;
+	color: var(--text-dim);
+}
+
+.panel .row .value {
+	font-size: 10px;
+	font-weight: 600;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.panel .row .value.cyan {
+	color: var(--cyan);
+}
+
+.panel .title {
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	margin-bottom: 6px;
+}
+
+.panel .sub {
+	font-size: 10px;
+	color: var(--text-dim);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.panel .meter {
+	width: 100%;
+	margin: 0;
+}
+
+/* Popup action buttons (media controls) */
+.actions {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin-top: auto;
+	padding-top: 10px;
+}
+
+.action {
+	font-size: 13px;
+	color: var(--text-dim);
+	padding: 5px 12px;
+	border-radius: 10px;
+	background: var(--surface);
+	box-shadow:
+		inset 2px 2px 5px rgba(0, 0, 0, 0.6),
+		inset -2px -2px 5px rgba(255, 255, 255, 0.055);
+	cursor: pointer;
+	transition: color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.action:hover {
+	color: var(--cyan);
+}
+
+.action:active {
+	box-shadow:
+		inset 3px 3px 7px rgba(0, 0, 0, 0.7),
+		inset -3px -3px 7px rgba(255, 255, 255, 0.06);
+}
+
+/* Calendar popup: neumorphic panel */
+
+.calendar {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	border-radius: 16px;
+	background: var(--surface);
+	box-shadow:
+		7px 7px 16px rgba(0, 0, 0, 0.7),
+		-7px -7px 16px rgba(255, 255, 255, 0.05),
+		inset 1px 1px 1px rgba(255, 255, 255, 0.06);
+}
+
+.calendar .head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 8px;
+}
+
+.calendar .month {
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.4px;
+	text-transform: capitalize;
+}
+
+.calendar .nav {
+	font-size: 10px;
+	color: var(--text-dim);
+	padding: 2px 6px;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: color 0.15s ease, background 0.15s ease;
+}
+
+.calendar .nav:hover {
+	color: var(--cyan);
+	background: var(--surface-lo);
+}
+
+.calendar .grid {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	gap: 2px;
+	text-align: center;
+	flex: 1;
+}
+
+.calendar .dow {
+	font-size: 9px;
+	color: var(--text-faint);
+	padding: 2px 0;
+	align-self: center;
+}
+
+.calendar .day {
+	font-size: 10px;
+	color: var(--text-dim);
+	padding: 3px 0;
+	border-radius: 6px;
+	align-self: center;
+}
+
+.calendar .day.other {
+	color: var(--text-faint);
+}
+
+.calendar .day.today {
+	color: var(--cyan);
+	font-weight: 600;
+	text-shadow: 0 0 8px rgba(90, 212, 230, 0.5);
+}

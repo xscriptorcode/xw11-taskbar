@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <title>X — bar</title>
+  </head>
+  <body>
+    <div id="bar">
+      <div class="group" id="group-left">
+        <div class="island" id="island-system">
+          <span class="icon">&#xf120;</span>
+          <span class="value dim" id="system"></span>
+        </div>
+        <div class="island hidden" id="island-media">
+          <span class="icon">&#xf001;</span>
+          <span class="value dim media-text" id="media"></span>
+        </div>
+        <div class="island" id="island-disk">
+          <span class="icon">&#xf0a0;</span>
+          <span class="value" id="disk"></span>
+          <span class="meter" id="meter-disk"><span class="meter-fill"></span></span>
+        </div>
+      </div>
+
+      <div class="island" id="island-clock">
+        <span class="icon">&#xf017;</span>
+        <span class="value" id="clock"></span>
+      </div>
+
+      <div class="group" id="group-right">
+        <div class="island" id="island-cpu">
+          <span class="icon">&#xf2db;</span>
+          <span class="value" id="cpu"></span>
+          <span class="meter" id="meter-cpu"><span class="meter-fill"></span></span>
+        </div>
+        <div class="island" id="island-memory">
+          <span class="icon">&#xefc5;</span>
+          <span class="value" id="memory"></span>
+          <span class="meter" id="meter-memory"><span class="meter-fill"></span></span>
+        </div>
+        <div class="island" id="island-traffic">
+          <span class="icon">&#xf063;</span>
+          <span class="value dim" id="traffic-dl"></span>
+          <span class="icon">&#xf062;</span>
+          <span class="value dim" id="traffic-ul"></span>
+        </div>
+        <div class="island" id="island-volume">
+          <span class="icon" id="volume-icon">&#xf028;</span>
+          <span class="value" id="volume"></span>
+        </div>
+        <div class="island" id="island-battery">
+          <span class="icon" id="battery-icon">&#xf240;</span>
+          <span class="value" id="battery"></span>
+        </div>
+        <div class="island" id="island-theme">
+          <span class="icon">&#xf1fc;</span>
+          <span class="value dim" id="theme-name"></span>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

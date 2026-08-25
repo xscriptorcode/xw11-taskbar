@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <title>System</title>
+  </head>
+  <body class="panel-body">
+    <div class="panel">
+      <div class="title">System</div>
+      <div class="row"><span class="label">Host</span><span class="value" id="host"></span></div>
+      <div class="row"><span class="label">IP</span><span class="value cyan" id="ip"></span></div>
+      <div class="row"><span class="label">Location</span><span class="value" id="location"></span></div>
+      <div class="row"><span class="label">Layout</span><span class="value" id="layout"></span></div>
+    </div>
+    <script type="module">
+      import { zebar, el, setText, POPUP_CLOSE_KEY } from "./core.js";
+
+      const POPUP = "system-popup";
+      const providers = zebar.createProviderGroup({
+        host: { type: "host" },
+        ip: { type: "ip", refreshInterval: 600000 },
+        keyboard: { type: "keyboard", refreshInterval: 3000 },
+      });
+
+      function render(o) {
+        setText("host", o.host?.hostname ?? "\u2014");
+        setText("ip", o.ip?.address ?? "\u2014");
+        const loc = [o.ip?.approxCity, o.ip?.approxCountry].filter(Boolean).join(", ");
+        setText("location", loc || "\u2014");
+        setText("layout", o.keyboard?.layout ?? "\u2014");
+      }
+      render(providers.outputMap);
+      providers.onOutput(() => render(providers.outputMap));
+
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
+      window.addEventListener("storage", (e) => { if (e.key === POPUP_CLOSE_KEY(POPUP) && e.newValue !== "open") close(); });
+      function close() { zebar.currentWidget().close(); }
+    </script>
+  </body>
+</html>

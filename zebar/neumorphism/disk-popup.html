@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <title>Disk</title>
+  </head>
+  <body class="panel-body">
+    <div class="panel" id="panel">
+      <div class="title">Disks</div>
+    </div>
+    <script type="module">
+      import { zebar, el, formatSize, POPUP_CLOSE_KEY } from "./core.js";
+
+      const POPUP = "disk-popup";
+      const providers = zebar.createProviderGroup({ disk: { type: "disk", refreshInterval: 10000 } });
+
+      function render(o) {
+        const disks = o.disk?.disks ?? [];
+        const panel = el("panel");
+        panel.innerHTML = '<div class="title">Disks</div>';
+        const sorted = [...disks].sort((a, b) => b.totalSpace.bytes - a.totalSpace.bytes);
+        for (const d of sorted) {
+          if (d.isRemovable && d.totalSpace.bytes === 0) continue;
+          const usedPct = d.totalSpace.bytes === 0 ? 0 : ((d.totalSpace.bytes - d.availableSpace.bytes) / d.totalSpace.bytes) * 100;
+          const row = document.createElement("div");
+          row.className = "row";
+          const used = formatSize(d.totalSpace.bytes - d.availableSpace.bytes);
+          const total = formatSize(d.totalSpace.bytes);
+          row.innerHTML = `
+            <span class="label">${d.name ?? d.mountPoint}</span>
+            <span class="value">${Math.round(usedPct)}% · ${used} / ${total}</span>`;
+          panel.appendChild(row);
+          const mrow = document.createElement("div");
+          mrow.className = "row";
+          const m = document.createElement("span");
+          m.className = "meter";
+          m.innerHTML = '<span class="meter-fill"></span>';
+          mrow.appendChild(m);
+          panel.appendChild(mrow);
+          const fill = m.querySelector(".meter-fill");
+          if (fill) fill.style.width = `${Math.max(0, Math.min(usedPct, 100))}%`;
+        }
+      }
+      render(providers.outputMap);
+      providers.onOutput(() => render(providers.outputMap));
+
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
+      window.addEventListener("storage", (e) => { if (e.key === POPUP_CLOSE_KEY(POPUP) && e.newValue !== "open") close(); });
+      function close() { zebar.currentWidget().close(); }
+    </script>
+  </body>
+</html>

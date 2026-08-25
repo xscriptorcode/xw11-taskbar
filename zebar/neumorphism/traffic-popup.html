@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <title>Network</title>
+  </head>
+  <body class="panel-body">
+    <div class="panel">
+      <div class="title" id="ifname">Network</div>
+      <div class="row"><span class="label">IP</span><span class="value cyan" id="ip"></span></div>
+      <div class="row"><span class="label">Download</span><span class="value cyan" id="dl"></span></div>
+      <div class="row"><span class="label">Upload</span><span class="value cyan" id="ul"></span></div>
+      <div class="row"><span class="label">Received</span><span class="value" id="recv"></span></div>
+      <div class="row"><span class="label">Transmitted</span><span class="value" id="sent"></span></div>
+    </div>
+    <script type="module">
+      import { zebar, el, setText, formatSpeed, formatSize, POPUP_CLOSE_KEY } from "./core.js";
+
+      const POPUP = "traffic-popup";
+      const providers = zebar.createProviderGroup({ network: { type: "network", refreshInterval: 2000 } });
+
+      function render(o) {
+        const t = o.network?.traffic;
+        const iface = o.network?.defaultInterface;
+        setText("ifname", iface?.friendlyName ?? iface?.name ?? "Network");
+        const ip = iface?.ipv4Addresses?.[0] ?? "\u2014";
+        setText("ip", ip);
+        setText("dl", t?.received?.bytes != null ? formatSpeed(t.received.bytes) : "\u2014");
+        setText("ul", t?.transmitted?.bytes != null ? formatSpeed(t.transmitted.bytes) : "\u2014");
+        setText("recv", formatSize(t?.totalReceived?.bytes));
+        setText("sent", formatSize(t?.totalTransmitted?.bytes));
+      }
+      render(providers.outputMap);
+      providers.onOutput(() => render(providers.outputMap));
+
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
+      window.addEventListener("storage", (e) => { if (e.key === POPUP_CLOSE_KEY(POPUP) && e.newValue !== "open") close(); });
+      function close() { zebar.currentWidget().close(); }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,192 @@
+/* X palette tokens — themeable at runtime via palettes.js (12 palettes). */
+:root {
+	--bg: #050505;
+	--surface: #17171e;
+	--surface-hi: #1c1c24;
+	--surface-lo: #121218;
+	--text: #f7f1ff;
+	--text-dim: #8b8598;
+	--text-faint: #4e4a59;
+	--cyan: #5ad4e6;
+	--mint: #7bd88f;
+	--violet: #948ae3;
+	--pink: #fc618d;
+	--orange: #fd9353;
+	--font: "Hack Nerd Font", "JetBrainsMono NFP", monospace;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: var(--font);
+	font-size: 12px;
+	font-weight: 500;
+	color: var(--text);
+}
+
+html,
+body {
+	height: 100%;
+	overflow: hidden;
+	background: transparent;
+}
+
+/* Soft UI / neumorphism.
+   Depth hierarchy: the panel is EXTRUDED from the wallpaper (dual outer
+   shadows, light top-left / dark bottom-right), the islands are RECESSED
+   into the panel (inset shadows, same surface color), meters deeper still. */
+#bar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	width: fit-content;
+	height: 100%;
+	margin: 0 auto;
+	padding: 0 10px;
+	background: var(--surface);
+	border-radius: 999px;
+	box-shadow:
+		7px 7px 16px rgba(0, 0, 0, 0.75),
+		-7px -7px 16px rgba(255, 255, 255, 0.05),
+		inset 1px 1px 1px rgba(255, 255, 255, 0.06);
+}
+
+.group {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	min-width: 0;
+}
+
+/* Recessed island: inset bevels carve it into the panel surface.
+   Hover extrudes it; press recesses it deeper. */
+.island {
+	display: flex;
+	align-items: center;
+	height: 22px;
+	padding: 0 8px;
+	border-radius: 11px;
+	background: var(--surface);
+	box-shadow:
+		inset 2px 2px 5px rgba(0, 0, 0, 0.6),
+		inset -2px -2px 5px rgba(255, 255, 255, 0.055),
+		inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+	transition: box-shadow 0.18s ease, transform 0.18s ease;
+	min-width: 0;
+}
+
+.island.hidden {
+	display: none;
+}
+
+.island:hover {
+	transform: translateY(-1px);
+	box-shadow:
+		6px 6px 12px rgba(0, 0, 0, 0.7),
+		-6px -6px 12px rgba(255, 255, 255, 0.06),
+		inset 1px 1px 2px rgba(255, 255, 255, 0.06),
+		inset -1px -1px 2px rgba(0, 0, 0, 0.45);
+}
+
+.island:active {
+	transform: translateY(1px);
+	box-shadow:
+		inset 3px 3px 7px rgba(0, 0, 0, 0.7),
+		inset -3px -3px 7px rgba(255, 255, 255, 0.06);
+}
+
+.island .icon {
+	font-size: 11px;
+	color: var(--cyan);
+	padding-right: 6px;
+	text-shadow: 0 0 10px rgba(90, 212, 230, 0.35);
+}
+
+.island .icon:last-child {
+	padding-right: 0;
+}
+
+.island .value {
+	font-size: 10px;
+	letter-spacing: 0.4px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.island .value.dim {
+	color: var(--text-dim);
+}
+
+#island-clock .value {
+	font-weight: 600;
+}
+
+#island-cpu .icon {
+	color: var(--violet);
+	text-shadow: 0 0 10px rgba(148, 138, 227, 0.35);
+}
+
+#island-memory .icon {
+	color: var(--mint);
+	text-shadow: 0 0 10px rgba(123, 216, 143, 0.3);
+}
+
+#island-disk .icon {
+	color: var(--orange);
+	text-shadow: 0 0 10px rgba(253, 147, 83, 0.3);
+}
+
+#island-traffic .icon {
+	color: var(--cyan);
+	text-shadow: none;
+	font-size: 10px;
+	padding-right: 5px;
+}
+
+#island-volume,
+#island-theme {
+	cursor: pointer;
+}
+
+.media-text {
+	max-width: 130px;
+	font-size: 10.5px;
+	letter-spacing: 0.2px;
+}
+
+/* Micro progress meter: recessed track, glowing fill */
+.meter {
+	width: 34px;
+	height: 3px;
+	margin-left: 6px;
+	border-radius: 2px;
+	background: var(--surface-lo);
+	box-shadow:
+		inset 2px 2px 4px rgba(0, 0, 0, 0.75),
+		inset -2px -2px 3px rgba(255, 255, 255, 0.05);
+	overflow: hidden;
+	flex-shrink: 0;
+}
+
+.meter-fill {
+	display: block;
+	height: 100%;
+	width: 0%;
+	border-radius: 2px;
+	background: linear-gradient(90deg, var(--cyan), var(--violet));
+	box-shadow: 0 0 8px rgba(90, 212, 230, 0.5);
+	transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#meter-memory .meter-fill {
+	background: linear-gradient(90deg, var(--cyan), var(--mint));
+	box-shadow: 0 0 8px rgba(123, 216, 143, 0.45);
+}
+
+#meter-disk .meter-fill {
+	background: linear-gradient(90deg, var(--orange), var(--pink));
+	box-shadow: 0 0 8px rgba(253, 147, 83, 0.45);
+}

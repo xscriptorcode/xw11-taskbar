@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <title>System</title>
+  </head>
+  <body>
+    <div class="island" id="island">
+      <span class="icon" id="icon-system">&#xf120;</span>
+      <span class="value" id="system"></span>
+      <span class="meter" id="meter-system"><span class="meter-fill"></span></span>
+    </div>
+    <script type="module">
+      import { zebar, el, setText, setVisible, meter, formatSpeed, truncate } from "./core.js";
+
+    const providers = zebar.createProviderGroup({
+      host: { type: "host" },
+      ip: { type: "ip", refreshInterval: 600000 },
+      keyboard: { type: "keyboard", refreshInterval: 3000 },
+    });
+    function render(o) {
+      const parts = [o.host?.hostname, o.ip?.address, o.keyboard?.layout].filter(Boolean);
+      setText("system", parts.join(" \u00b7 "));
+      setVisible("island", parts.length > 0);
+    }
+    render(providers.outputMap);
+    providers.onOutput(() => render(providers.outputMap));
+    </script>
+  </body>
+</html>
