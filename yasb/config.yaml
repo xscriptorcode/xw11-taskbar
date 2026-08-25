@@ -55,6 +55,7 @@ bars:
           "disk",
           "weather",
           "volume",
+          "theme_switcher",
           "power_menu"
         ]
 widgets:
@@ -121,15 +122,15 @@ widgets:
         label_alt: "<span>\uf437</span> {info[histograms][cpu_percent]}"
         update_interval: 2000
         histogram_icons:
-          - '\u2581' # 0%
-          - '\u2581' # 10%
-          - '\u2582' # 20%
-          - '\u2583' # 30%
-          - '\u2584' # 40%
-          - '\u2585' # 50%
-          - '\u2586' # 60%
-          - '\u2587' # 70%
-          - '\u2588' # 80%+
+          - "\u2581" # 0%
+          - "\u2581" # 10%
+          - "\u2582" # 20%
+          - "\u2583" # 30%
+          - "\u2584" # 40%
+          - "\u2585" # 50%
+          - "\u2586" # 60%
+          - "\u2587" # 70%
+          - "\u2588" # 80%+
         histogram_num_columns: 8
         callbacks:
           on_right: "exec cmd /c Taskmgr"
@@ -277,7 +278,7 @@ widgets:
   power_menu:
       type: "yasb.power_menu.PowerMenuWidget"
       options:
-        label: "\uf011"
+        label: "\uf17a"
         uptime: True
         blur: False
         blur_background: True
@@ -293,6 +294,26 @@ widgets:
           cancel: ["\udb81\udf3a","Cancel"]
           #force_shutdown: ["\uf011","Force Shut Down"]
           #force_restart: ["\uead2","Force Restart"]
+  theme_switcher:
+      type: "yasb.custom.CustomWidget"
+      options:
+        label: "<span>\uf1fc</span> {data}"
+        label_alt: "<span>\uf1fc</span> {data}"
+        label_placeholder: "<span>\uf1fc</span>"
+        class_name: "theme-switcher-widget"
+        tooltip: true
+        tooltip_label: "Theme: {data}\nLeft: next \u00b7 Right: previous"
+        exec_options:
+          # No double quotes around the path: YASB splits run_cmd on spaces and
+          # re-quotes it, so a quoted %USERPROFILE% path never expands (labels
+          # would stay on "Loading..."). The exec callbacks strip quotes instead.
+          run_cmd: 'powershell -NoProfile -ExecutionPolicy Bypass -File %USERPROFILE%\.config\yasb\theme-switcher.ps1 -Action name'
+          run_interval: 5000
+          return_format: "string"
+        callbacks:
+          on_left: 'exec powershell -NoProfile -ExecutionPolicy Bypass -File "%USERPROFILE%\.config\yasb\theme-switcher.ps1" -Action next'
+          on_right: 'exec powershell -NoProfile -ExecutionPolicy Bypass -File "%USERPROFILE%\.config\yasb\theme-switcher.ps1" -Action prev'
+          on_middle: "do_nothing"
   apps:
       type: "yasb.applications.ApplicationsWidget"
       options:

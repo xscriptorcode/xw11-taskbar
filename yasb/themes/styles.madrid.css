@@ -1,18 +1,18 @@
 :root {
-	/* X palette tokens */
-	--bg: #050505;
-	--island: #0d0d10;
-	--island-raised: #111117;
-	--island-line: rgba(255, 255, 255, 0.07);
-	--text: #f7f1ff;
-	--text-dim: #7d778c;
-	--text-faint: #4e4a59;
-	--cyan: #5ad4e6;
-	--pink: #fc618d;
-	--mint: #7bd88f;
-	--yellow: #fce566;
-	--orange: #fd9353;
-	--violet: #948ae3;
+	/* Madrid palette tokens */
+	--bg: #fafafa;
+	--island: #fbfbfb;
+	--island-raised: #fcfcfc;
+	--island-line: rgba(0, 0, 0, 0.07);
+	--text: #1a1a1a;
+	--text-dim: #8a8a8a;
+	--text-faint: #b7b7b7;
+	--cyan: #007a9e;
+	--pink: #990026;
+	--mint: #007a28;
+	--yellow: #8a6408;
+	--orange: #007a9e;
+	--violet: #4d2699;
 	--font: "JetBrainsMono NFP", "JetBrainsMono Nerd Font Propo", "JetBrainsMono Nerd Font", "JetBrainsMonoNL NF", "JetBrainsMono Nerd Font Mono";
 }
 
@@ -49,16 +49,16 @@
    Double border (groove = two parallel bevel lines) + double fill
    (linear gradient, light on top / dark on bottom) for the neumorphism. */
 .widget-container {
-	background: linear-gradient(135deg, #22222c 0%, #14141a 50%, #0a0a0d 100%);
+	background: linear-gradient(135deg, #fdfdfd 0%, #fbfbfb 50%, #e6e6e6 100%);
 	border: 1px solid rgba(255, 255, 255, 0.05);
 	border-radius: 15px;
-	box-shadow: 0 5px 14px rgba(0, 0, 0, 0.65);
+	box-shadow: 0 5px 14px rgba(0, 0, 0, 0.16);
 	padding: 0 8px;
 	margin: 4px 0;
 }
 .widget-container:hover {
-	background: linear-gradient(135deg, #272733 0%, #18181f 50%, #0c0c10 100%);
-	border-color: rgba(90, 212, 230, 0.3);
+	background: linear-gradient(135deg, #fefefe 0%, #fcfcfc 50%, #eeeeee 100%);
+	border-color: rgba(0, 122, 158, 0.3);
 }
 
 /* Breathing room on labels so icon glyphs are never clipped */
@@ -113,7 +113,7 @@
 .komorebi-workspaces .ws-btn.active,
 .windows-desktops .ws-btn.active {
 	color: var(--cyan);
-	background-color: rgba(90, 212, 230, 0.1);
+	background-color: rgba(0, 122, 158, 0.1);
 }
 .komorebi-workspaces .offline-status {
 	background-color: var(--island);
@@ -158,7 +158,7 @@
 }
 .apps-widget .label:hover {
 	color: var(--cyan);
-	text-shadow: 0 0 10px rgba(90, 212, 230, 0.4);
+	text-shadow: 0 0 10px rgba(0, 122, 158, 0.4);
 }
 
 /* MEDIA */
@@ -247,7 +247,7 @@
 	padding: 0 2px;
 }
 .power-menu-widget:hover .label {
-	text-shadow: 0 0 10px rgba(252, 97, 141, 0.45);
+	text-shadow: 0 0 10px rgba(153, 0, 38, 0.45);
 }
 
 /* POWER MENU POPUP */
@@ -259,7 +259,7 @@
 	font-family: "Segoe UI";
 }
 .power-menu-popup {
-	background-color: rgba(13, 13, 16, 0.94);
+	background-color: rgba(251, 251, 251, 0.94);
 	border: 1px solid var(--island-line);
 	border-radius: 16px;
 }
@@ -275,32 +275,32 @@
 	margin: 8px;
 }
 .power-menu-popup .button.hover {
-	background-color: #16161c;
-	border: 1px solid rgba(90, 212, 230, 0.3);
+	background-color: #ebebeb;
+	border: 1px solid rgba(0, 122, 158, 0.3);
 }
 .power-menu-popup .button .label {
 	margin-bottom: 8px;
 	font-size: 15px;
 	font-weight: 600;
-	color: rgba(247, 241, 255, 0.9);
+	color: rgba(26, 26, 26, 0.9);
 	font-family: "Segoe UI";
 }
 .power-menu-popup .button .icon {
 	font-size: 40px;
 	padding-top: 8px;
-	color: rgba(247, 241, 255, 0.2);
+	color: rgba(26, 26, 26, 0.2);
 }
 .power-menu-popup .button.cancel .icon {
-	color: rgba(252, 97, 141, 0.45);
+	color: rgba(153, 0, 38, 0.45);
 }
 .power-menu-popup .button.cancel .label {
-	color: rgba(252, 97, 141, 0.9);
+	color: rgba(153, 0, 38, 0.9);
 }
 .power-menu-popup .button.shutdown .icon {
-	color: rgba(90, 212, 230, 0.5);
+	color: rgba(0, 122, 158, 0.5);
 }
 .power-menu-popup .button.shutdown .label {
-	color: rgba(90, 212, 230, 0.95);
+	color: rgba(0, 122, 158, 0.95);
 }
 
 /* GITHUB */
@@ -310,4 +310,21 @@
 }
 .github-widget .icon.new-notification {
 	color: var(--pink);
+}
+
+/* THEME SWITCHER — neutral on purpose: it must never clash with any theme */
+.theme-switcher-widget .icon {
+	color: var(--text-dim);
+	padding: 0 4px;
+}
+.theme-switcher-widget .label {
+	color: var(--text-dim);
+	padding: 1px 2px;
+}
+.theme-switcher-widget:hover .icon {
+	color: var(--cyan);
+	text-shadow: 0 0 10px rgba(0, 122, 158, 0.4);
+}
+.theme-switcher-widget:hover .label {
+	color: var(--cyan);
 }

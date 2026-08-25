@@ -45,7 +45,7 @@ settings, borders, corners and menus) with the X palette.
 
 Configurable status bar with widgets for: active window, window controls,
 clock/calendar, network traffic, CPU, memory, disk, volume, battery, WiFi,
-weather and system tray.
+weather, theme switcher and system tray.
 
 The bar is built as **floating neumorphic islands**: the left/center/right
 groups are separate pill-shaped surfaces that float over the blurred wallpaper,
@@ -70,6 +70,11 @@ Restart YASB from its tray icon.
 
 **Quick customization** — the palette lives in the CSS variables of `styles.css`
 (`:root`): change any `--x-*` token and the whole bar updates.
+
+**Theme switching** — the bar includes a `theme_switcher` button (left click:
+next theme, right click: previous). It swaps `styles.css` from the
+[`theme-switcher/`](../theme-switcher/) collection and YASB's `watch_stylesheet`
+applies it on the spot, no restart needed.
 
 ## Palette mapping
 
