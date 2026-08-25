@@ -8,6 +8,19 @@ All notable changes to this repository will be documented in this file.
 ## [2026-08-25]
 
 ### Added
+- **`windhawk/` taskbar themes** (Taskbar Styler JSON): three layouts —
+  `dock/` (floating centered dock pill, apps without boxes),
+  `islands/` (floating rounded islands), `translucid/` (legacy transparent).
+  Each layout ships one variant per palette (X, Madrid, Lahabana, Miami,
+  Paris, Tokio, Oslo, Helsinki, Berlin, London, Praha, Bogota) with its own
+  differentiating accent color (borders, running indicator, clock, tray text,
+  labels) and the palette `background` color; Start button hidden.
+- **`windhawk/taskbar/generate.py`**: regenerates the `dock/` themes from the
+  canonical `yasb/generate.py` palettes.
+- **Dock/islands `README.md` + `taskbar-height-icon-size.json`**: per-layout
+  docs and the required **Taskbar Height and Icon Size** mod settings
+  (dock: 16/55/40/30; islands: 20/34/31/38).
+- **`windhawk/README.md`**: overview of the three layouts and setup steps.
 - **Per-pack remote installers** (`yasb/install.ps1`, `zebar/install.ps1`):
   remote bootstrap — downloads the latest repo snapshot (codeload zip, no git
   required) and runs the corresponding deploy; usable as a one-liner
@@ -35,6 +48,10 @@ All notable changes to this repository will be documented in this file.
 - **YASB CPU histogram**: `histogram_icons` were single-quoted YAML, so `\u2581` showed as literal text — now double-quoted and decoded to real block glyphs.
 - **Zebar "HTML file not found"**: `htmlPath` pointed at a subdirectory (`./bar/index.html`) that the asset server cannot serve (Rust globs do not cross separators) — files flattened to pack root.
 - **Zebar theme switcher**: `run_cmd` path with quotes never expanded `%USERPROFILE%` (YASB splits `run_cmd` on spaces) — unquoted path + real config-dir rewrite in `deploy.ps1`.
+
+### Removed
+- **`oldfiles/`**: deleted — legacy taskbar themes and early Windows
+  experiments superseded by the `windhawk/` taskbar themes.
 
 ## [2026-08-24]
 

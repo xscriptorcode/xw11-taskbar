@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1>Windows Xscriptor</h1>
+<h1>Windows</h1>
 
 Complete collection of Xscriptor customizations for **Windows 11**: status bars
 (YASB, Zebar), taskbar themes, PowerShell tooling and more — all with the
@@ -46,8 +46,11 @@ Xscriptor palette ecosystem.
 - `zebar/`: Zebar widget packs — `neumorphism/` (soft-UI neumorphic bar with
   popups and 12 switchable palettes) and `xneon/` (liquid-glass backup),
   with `deploy.ps1` and `generate-palettes.py`.
-- `windhawk/`: Windhawk mods (planned).
-- `oldfiles/`: Legacy taskbar themes and early Windows experiments.
+- `windhawk/`: Windhawk taskbar themes (Taskbar Styler JSON) — three layouts:
+  `dock/` (floating centered dock), `islands/` (floating rounded islands),
+  `translucid/` (legacy transparent); each with one variant per palette
+  (`x.json`, `madrid.json`, …) and its own accent color; `taskbar/generate.py`
+  regenerates them from the canonical palettes.
 
 <div align="center">
 
