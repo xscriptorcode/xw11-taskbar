@@ -1,6 +1,6 @@
 <div align="center">
 
-# Windows Xscriptor
+<h1>Windows Xscriptor</h1>
 
 Complete collection of Xscriptor customizations for **Windows 11**: status bars
 (YASB, Zebar), taskbar themes, PowerShell tooling and more — all with the
@@ -17,18 +17,28 @@ Xscriptor palette ecosystem.
 
 </div>
 
-## Contents
+<div align="center">
 
-- [Repository Structure](#repository-structure)
-- [Quick Install](#quick-install)
-- [Usage](#usage)
-- [Colors](#colors)
-- [Compatibility](#compatibility)
-- [License](#license)
-- [Related repos](#related-repos)
-- [X](#x)
+<h2 id="contents">Contents</h2>
 
-## Repository Structure
+<nav>
+  <a href="#repository-structure">Repository Structure</a> ·
+  <a href="#quick-install">Quick Install</a> ·
+  <a href="#usage">Usage</a> ·
+  <a href="#colors">Colors</a> ·
+  <a href="#compatibility">Compatibility</a> ·
+  <a href="#license">License</a> ·
+  <a href="#related-repos">Related Repos</a> ·
+  <a href="#x">X</a>
+</nav>
+
+</div>
+
+<div align="center">
+
+<h2 id="repository-structure">Repository Structure</h2>
+
+</div>
 
 - `yasb/`: YASB theme pack — single source layout (`config.yaml`, `themes/`,
   theme switcher, `deploy.ps1`, `generate.py`) plus the archived per-theme
@@ -39,13 +49,18 @@ Xscriptor palette ecosystem.
 - `windhawk/`: Windhawk mods (planned).
 - `oldfiles/`: Legacy taskbar themes and early Windows experiments.
 
-## Quick Install
+<div align="center">
 
-**Remote one-liner** (Windows 11, PowerShell 5.1+, no git needed) — installs
-YASB/Zebar if missing and deploys both theme packs from the repo:
+<h2 id="quick-install">Quick Install</h2>
+
+</div>
+
+**Remote one-liners** (Windows 11, PowerShell 5.1+, no git needed) — install
+the app if missing and deploy the theme packs from the repo:
 
 ```powershell
-irm https://raw.githubusercontent.com/xscriptor-colors/windows/main/windows/install.ps1 | iex
+irm https://raw.githubusercontent.com/xscriptor-colors/windows/main/windows/yasb/install.ps1 | iex                         # YASB only
+irm https://raw.githubusercontent.com/xscriptor-colors/windows/main/windows/zebar/install.ps1 | iex                        # Zebar only
 ```
 
 **Or clone and deploy locally**:
@@ -57,7 +72,11 @@ powershell -ExecutionPolicy Bypass -File zebar\deploy.ps1  # Zebar (winget insta
 
 Then enable the packs from the Zebar tray icon → *My widgets*.
 
-## Usage
+<div align="center">
+
+<h2 id="usage">Usage</h2>
+
+</div>
 
 - **Zebar bar**: one neumorphic island per indicator (system, media, disk,
   clock, CPU, memory, traffic, volume, battery, theme). Click any island for
@@ -66,7 +85,11 @@ Then enable the packs from the Zebar tray icon → *My widgets*.
 - **YASB bar**: floating neumorphic islands; `theme_switcher` button cycles
   the 12 theme stylesheets (left = next, right = previous).
 
-## Colors
+<div align="center">
+
+<h2 id="colors">Colors</h2>
+
+</div>
 
 
 <div align="center">
@@ -86,26 +109,45 @@ Then enable the packs from the Zebar tray icon → *My widgets*.
   <a href="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_bogota.svg"><img src="https://raw.githubusercontent.com/xscriptor-colors/assets/main/media/palettes/palette_bogota.svg" height="100" alt="Bogota"/></a>
 </div>
 
-## Compatibility
+<div align="center">
+
+<h2 id="compatibility">Compatibility</h2>
+
+</div>
 
 - Windows 11, Komorebi/GlazeWM-friendly.
 - Requires the Hack Nerd Font (or any Nerd Font) for icon glyphs.
 
-## License
+<div align="center">
+
+<h2 id="license">License</h2>
+
+</div>
 
 - Repository code is under the [MIT License](LICENSE).
 
-## Related Repos
+<div align="center">
+
+<h2 id="related-repos">Related Repos</h2>
+
+</div>
 
 - [VSCode](https://github.com/xscriptor-colors/vscode)
 - [Terminal](https://github.com/xscriptor-colors/terminal)
 - [Nvim](https://github.com/xscriptor-colors/nvim)
 - [Jetbrains](https://github.com/xscriptor-colors/jetbrains)
 
-## X
-
- [![X Web](https://xscriptor.github.io/icons/icons/code/product-design/xsvg/verified-filled.svg)](https://xscriptor.io)
-&
-[![X Github Profile](https://xscriptor.github.io/icons/icons/code/product-design/xsvg/github.svg)](https://github.com/xscriptor)
-&
-[![Xscriptor web](https://xscriptor.github.io/icons/icons/code/product-design/xsvg/quotes.svg)](https://www.xscriptor.com)
+<div align="center">
+<h2 id="x">X</h2>
+<a href="https://xscriptor.io">
+  <img src="https://xscriptor.github.io/icons/icons/code/product-design/xsvg/verified-filled.svg" width="24" alt="X Web" />
+</a>
+ & 
+<a href="https://github.com/xscriptor">
+  <img src="https://xscriptor.github.io/icons/icons/code/product-design/xsvg/github.svg" width="24" alt="X Github Profile" />
+</a>
+ & 
+<a href="https://www.xscriptor.com">
+  <img src="https://xscriptor.github.io/icons/icons/code/product-design/xsvg/quotes.svg" width="24" alt="Xscriptor web" />
+</a>
+</div>

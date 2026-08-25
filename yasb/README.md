@@ -40,6 +40,14 @@ yasb/
 Requires [YASB](https://github.com/amnweb/yasb) (`winget install AmN.yasb`) and a
 **Nerd Font** with the *Propo* variant (e.g. `JetBrainsMono NFP`).
 
+**Remote** (no git needed — installs YASB if missing, then deploys):
+
+```powershell
+irm https://raw.githubusercontent.com/xscriptor-colors/windows/main/windows/yasb/install.ps1 | iex
+```
+
+**Or locally from this folder:**
+
 ```powershell
 powershell -ExecutionPolicy Bypass -File deploy.ps1
 yasbc reload

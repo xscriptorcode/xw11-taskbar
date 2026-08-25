@@ -5,13 +5,14 @@ All notable changes to this repository will be documented in this file.
 
 ---
 
-## [2026-08-25] · Session
+## [2026-08-25]
 
 ### Added
-- **`install.ps1`** (repo root): remote bootstrap — downloads the latest repo
-  snapshot (codeload zip, no git required) and runs the YASB + Zebar deploys;
-  usable as a one-liner `irm ... | iex` on Windows 11; locates the repo root
-  regardless of the archive nesting; `-SkipApps` / `-Keep` flags.
+- **Per-pack remote installers** (`yasb/install.ps1`, `zebar/install.ps1`):
+  remote bootstrap — downloads the latest repo snapshot (codeload zip, no git
+  required) and runs the corresponding deploy; usable as a one-liner
+  `irm ... | iex` on Windows 11; locates the repo root regardless of the archive
+  nesting; `-SkipApps` / `-Keep` flags.
 - **Zebar pack `xscriptor-colors-neumorphism`** (`zebar/neumorphism/`): soft-UI neumorphic status bar (extruded panel, recessed islands, dual soft shadows, inset bevels) with runtime theme switching across all 12 palettes.
 - **12 palettes** as a shared `palettes.js` (X, Madrid, Lahabana, Miami, Paris, Tokio, Oslo, Helsinki, Berlin, London, Praha, Bogota) with derived surface/high/low/text colors generated from the canonical `yasb/generate.py` source.
 - **Per-indicator popups** in the bar: click any island to open its detail widget — calendar (clock), system (host/IP/location/layout), media (with prev/play/next controls), disk (per-disk usage), CPU (usage/frequency/cores/vendor), memory (RAM + swap), traffic (interface, speeds, totals), battery (charge/state/health/cycles). Closed with Esc or clicking the island again.
