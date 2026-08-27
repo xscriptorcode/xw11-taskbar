@@ -2,6 +2,8 @@
 
 <h1>Windows</h1>
 
+<p><em>Taking windows to perfection</em></p>
+
 Complete collection of Xscriptor customizations for **Windows 11**: status bars
 (YASB, Zebar), taskbar themes, PowerShell tooling and more — all with the
 Xscriptor palette ecosystem.
