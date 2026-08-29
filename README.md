@@ -1,9 +1,7 @@
+<h1 align="center"> Taking <em>Windows</em> to perfection  <img src="https://raw.githubusercontent.com/xscriptor-colors/web/main/public/svg/icons/windows.svg" width="20" alt="Windows Colors logo" />
+</h1>
+
 <div align="center">
-
-<h1>Windows</h1>
-
-<p><em>Taking windows to perfection</em></p>
-
 Complete collection of Xscriptor customizations for **Windows 11**: status bars
 (YASB, Zebar), taskbar themes, PowerShell tooling and more — all with the
 Xscriptor palette ecosystem.
@@ -24,6 +22,7 @@ Xscriptor palette ecosystem.
 <h2 id="contents">Contents</h2>
 
 <nav>
+  <a href="#previews">Previews</a> ·
   <a href="#repository-structure">Repository Structure</a> ·
   <a href="#quick-install">Quick Install</a> ·
   <a href="#usage">Usage</a> ·
@@ -35,6 +34,25 @@ Xscriptor palette ecosystem.
 </nav>
 
 </div>
+
+
+
+<h2 align="center" id="previews">Previews</h2>
+<div align="center">
+<img src="https://xscriptor-colors.github.io/web/images/windows/preview1.webp" width="900" alt="Demo" >
+
+<hr />
+<img src="https://xscriptor-colors.github.io/web/images/windows/preview2.webp" width="900" alt="Demo" >
+<hr />
+</div>
+
+<details>
+<summary><b>More... </b></summary>
+<p align="center">
+<img src="https://xscriptor-colors.github.io/web/images/windows/preview3.webp" alt="Demo" width="49%" />
+<img src="https://xscriptor-colors.github.io/web/images/windows/preview4.webp" alt="Demo" width="49%" />
+</p>
+</details>
 
 <div align="center">
 
